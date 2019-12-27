@@ -3,7 +3,7 @@
 [![npm version][npm-version-src]][npm-version-href]
 [![Dependencies][david-dm-src]][david-dm-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
-[![code style: prettier](https://img.shields.io/badge/code_style-airbnb/prettier-FF5A5F.svg?style=flat-square)](https://github.com/airbnb/javascript)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-1a2b34.svg?style=flat-square)](https://prettier.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-black.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
 > Easy Minimal <a href="https://github.com/prisma-labs/graphql-request">GraphQL</a> client integration with Nuxt.js.
