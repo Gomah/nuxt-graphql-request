@@ -36,7 +36,6 @@
     "test:lint": "eslint --ext .js, lib/module.js"
   },
   "dependencies": {
-    "consola": "^2.11.1",
     "graphql": "^14.5.8",
     "graphql-request": "^1.8.2"
   },
@@ -44,16 +43,15 @@
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
     "@nuxt/types": "^0.5.9",
-    "@types/consola": "^2.2.5",
-    "@types/jest": "^24.0.24",
+    "@types/jest": "^24.0.25",
     "@types/jsdom": "^12.2.4",
-    "@types/node": "^13.1.0",
+    "@types/node": "^13.1.1",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
     "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.8.0",
+    "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-vue": "^6.0.2",
+    "eslint-plugin-vue": "^6.1.1",
     "graphql-tag": "^2.10.1",
     "husky": "^3.1.0",
     "jest": "^24.9.0",

@@ -1,6 +1,5 @@
 # 📡 GraphQL Request Module
 
-
 [![circleci][circleci-src]][circleci-href]
 [![npm version][npm-version-src]][npm-version-href]
 [![Dependencies][david-dm-src]][david-dm-href]
@@ -16,6 +15,8 @@
 - Promise-based API (works with `async` / `await`).
 - Typescript support.
 - AST support.
+
+[📖 **Release Notes**](./CHANGELOG.md)
 
 ## Setup
 
