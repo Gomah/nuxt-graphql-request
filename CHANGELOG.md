@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.2](https://github.com/Gomah/nuxt-graphql-request/compare/v1.0.1...v1.0.2) (2020-04-04)
+
+
+### Chore
+
+* **deps:** upgrade dependencies ([e3b07da](https://github.com/Gomah/nuxt-graphql-request/commit/e3b07da37b4fbc65b62051d2221de1d544efb710))
+
 ### [1.0.1](https://github.com/Gomah/nuxt-graphql-request/compare/v1.0.0...v1.0.1) (2020-02-09)
 
 
