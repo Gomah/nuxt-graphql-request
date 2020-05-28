@@ -2,13 +2,13 @@ const config = require('../fixture/nuxt.config.js');
 const request = require('request-promise-native');
 const { Nuxt, Builder } = require('nuxt');
 
-const url = path => `http://localhost:3000${path}`;
-const get = path => request(url(path));
+const url = (path) => `http://localhost:3000${path}`;
+const get = (path) => request(url(path));
 
 let nuxt;
 let addTemplate;
 
-const setupNuxt = async config => {
+const setupNuxt = async (config) => {
   nuxt = new Nuxt(config);
 
   // Spy addTemplate
@@ -40,7 +40,7 @@ describe('Nuxt GraphQL Request', () => {
 
   test('SSR', async () => {
     const html = await get('/');
-    expect(html).toContain('Tatooine');
+    expect(html).toContain('Bulbasaur');
   });
 
   test('CSR', async () => {
@@ -48,7 +48,7 @@ describe('Nuxt GraphQL Request', () => {
 
     window.onNuxtReady(() => {
       const html = window.document.body.innerHTML;
-      expect(html).toContain('Tatooine');
+      expect(html).toContain('Bulbasaur');
     });
   });
 });
@@ -65,7 +65,7 @@ describe('With AST', () => {
 
   test('SSR', async () => {
     const html = await get('/');
-    expect(html).toContain('Tatooine');
+    expect(html).toContain('Bulbasaur');
   });
 
   test('CSR', async () => {
@@ -73,7 +73,7 @@ describe('With AST', () => {
 
     window.onNuxtReady(() => {
       const html = window.document.body.innerHTML;
-      expect(html).toContain('Tatooine');
+      expect(html).toContain('Bulbasaur');
     });
   });
 });

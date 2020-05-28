@@ -1,6 +1,6 @@
 <template>
   <div>
-    <pre v-text="planets" />
+    <pre v-text="pokemons" />
   </div>
 </template>
 
@@ -11,31 +11,29 @@ export default {
   name: 'Index',
 
   data: () => ({
-    planets: [],
+    pokemons: [],
   }),
 
   head() {
     return {
-      title: 'Star Wars',
+      title: 'Pokemons',
     };
   },
 
   async asyncData({ $graphql }) {
-    const planetsQuery = /* GraphQL */ `
-      query planets($first: Int) {
-        allPlanets(first: $first) {
-          planets {
-            id
-            name
-          }
+    const pokemonsQuery = /* GraphQL */ `
+      query pokemons($first: Int!) {
+        pokemons(first: $first) {
+          id
+          name
         }
       }
     `;
 
     const variables = { first: 10 };
 
-    const planets = await $graphql.request(planetsQuery, variables);
-    return { planets };
+    const pokemons = await $graphql.request(pokemonsQuery, variables);
+    return { pokemons };
   },
 };
 </script>

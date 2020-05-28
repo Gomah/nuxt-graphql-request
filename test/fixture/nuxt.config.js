@@ -6,7 +6,7 @@ module.exports = {
   modules: ['../../lib/module'],
   graphql: {
     AST: false,
-    endpoint: 'https://swapi-graphql.netlify.com/.netlify/functions/index',
+    endpoint: 'https://graphql-pokemon.now.sh',
     options: {},
   },
   dev: process.env.NODE_ENV !== 'test' && process.env.NODE_ENV === 'production',

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <pre v-text="planets" />
+    <pre v-text="pokemons" />
   </div>
 </template>
 
@@ -12,30 +12,27 @@ export default {
   name: 'WithAST',
 
   data: () => ({
-    planets: [],
+    pokemons: [],
   }),
 
   head() {
     return {
-      title: 'Star Wars',
+      title: 'Pokemons',
     };
   },
 
   async asyncData({ app }) {
-    const planetsQuery = gql`
-      query {
-        allPlanets {
-          planets {
-            id
-            name
-          }
+    const pokemonsQuery = gql`
+      query pokemons($first: Int!) {
+        pokemons(first: $first) {
+          id
+          name
         }
       }
     `;
 
-    const planets = await app.$graphql.request(planetsQuery, {});
-
-    return { planets };
+    const pokemons = await app.$graphql.request(pokemonsQuery, { first: 10 });
+    return { pokemons };
   },
 };
 </script>
