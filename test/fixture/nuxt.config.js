@@ -5,7 +5,6 @@ module.exports = {
   srcDir: __dirname,
   modules: ['../../lib/module'],
   graphql: {
-    AST: false,
     endpoint: 'https://graphql-pokemon.now.sh',
     options: {},
   },

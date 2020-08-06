@@ -5,8 +5,7 @@
 </template>
 
 <script>
-import { print } from 'graphql/language/printer';
-import gql from 'graphql-tag';
+import { gql } from 'graphql-request';
 
 export default {
   name: 'WithAST',

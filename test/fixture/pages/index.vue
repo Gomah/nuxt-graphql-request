@@ -5,8 +5,6 @@
 </template>
 
 <script>
-import { print } from 'graphql/language/printer';
-
 export default {
   name: 'Index',
 

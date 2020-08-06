@@ -55,7 +55,6 @@ describe('Nuxt GraphQL Request', () => {
 
 describe('With AST', () => {
   beforeAll(async () => {
-    config.graphql.AST = true;
     await setupNuxt(config);
   });
 
@@ -64,12 +63,19 @@ describe('With AST', () => {
   });
 
   test('SSR', async () => {
-    const html = await get('/');
+    const html = await get('/with-ast');
     expect(html).toContain('Bulbasaur');
   });
 
   test('CSR', async () => {
-    const window = await nuxt.renderAndGetWindow(url('/'));
+    const window = await nuxt.renderAndGetWindow(url('/with-ast'));
+
+    window.onNuxtReady(() => {
+      const html = window.document.body.innerHTML;
+      expect(html).toContain('Bulbasaur');
+    });
+  });
+});
 
     window.onNuxtReady(() => {
       const html = window.document.body.innerHTML;
