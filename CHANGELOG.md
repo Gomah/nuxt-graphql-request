@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [3.0.0](https://github.com/Gomah/nuxt-graphql-request/compare/v1.0.2...v3.0.0) (2020-08-06)
 
+**BREAKING CHANGES**
+
+`nuxt-graphql-request` now requires `graphql` version 14.x or 15.x as a peer dependency.
+
 
 ### Features
 
