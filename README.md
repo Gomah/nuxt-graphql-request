@@ -15,6 +15,7 @@
 - Promise-based API (works with `async` / `await`).
 - Typescript support.
 - AST support.
+- GraphQL Loader support.
 
 [📖 **Release Notes**](./CHANGELOG.md)
 
@@ -23,13 +24,13 @@
 Install with yarn:
 
 ```bash
-yarn add nuxt-graphql-request
+yarn add nuxt-graphql-request graphql
 ```
 
 Install with npm:
 
 ```bash
-npm install nuxt-graphql-request
+npm install nuxt-graphql-request graphql
 ```
 
 **nuxt.config.js**
@@ -45,16 +46,16 @@ module.exports = {
     endpoint: 'https://swapi-graphql.netlify.com/.netlify/functions/index',
 
     /**
-     * Enable support for AST
-     * default: false
-     */
-    AST: false,
-
-    /**
      * Options
-     * See: https://github.com/prisma-labs/graphql-request
+     * See: https://github.com/prisma-labs/graphql-request#passing-more-options-to-fetch
      */
     options: {},
+
+    /**
+     * Optional
+     * default: false (this includes graphql-tag for node_modules folder)
+     */
+    includeNodeModules: true,
   },
 };
 ```
@@ -66,8 +67,10 @@ module.exports = {
 **`asyncData`**
 
 ```ts
+import { gql } from 'graphql-request';
+
 async asyncData({ $graphql, params }) {
-  const query = /* GraphQL */ `
+  const query = gql`
     query planets {
       allPlanets {
         planets {
@@ -86,9 +89,11 @@ async asyncData({ $graphql, params }) {
 **`methods`/`created`/`mounted`/etc**
 
 ```ts
+import { gql } from 'graphql-request';
+
 methods: {
   async fetchSomething() {
-    const query = /* GraphQL */ `
+    const query = gql`
       query planets {
         allPlanets {
           planets {
@@ -108,11 +113,13 @@ methods: {
 ### Store actions (including `nuxtServerInit`)
 
 ```ts
+import { gql } from 'graphql-request';
+
 // In store
 {
   actions: {
     async fetchAllPlanets ({ commit }) {
-      const query = /* GraphQL */ `
+      const query = gql`
         query planets {
           allPlanets {
             planets {
@@ -143,7 +150,6 @@ In nuxt.config.ts
 
 module.exports = {
   graphql: {
-    AST: false,
     endpoint: 'https://swapi-graphql.netlify.com/.netlify/functions/index',
     options: {
       headers: {
@@ -171,7 +177,6 @@ In nuxt.config.ts:
 
 module.exports = {
   graphql: {
-    AST: false,
     endpoint: 'https://swapi-graphql.netlify.com/.netlify/functions/index',
     options: {
       credentials: 'include',
@@ -196,7 +201,9 @@ this.$graphql.setHeader('mode', 'cors');
 #### Using variables
 
 ```ts
-const query = /* GraphQL */ `
+import { gql } from 'graphql-request';
+
+const query = gql`
   query planets($first: Int) {
     allPlanets(first: $first) {
       planets {
@@ -217,7 +224,9 @@ const planets = await $graphql.request(query, variables);
 The `request` method will return the `data` or `errors` key from the response. If you need to access the `extensions` key you can use the `rawRequest` method:
 
 ```ts
-const query = /* GraphQL */ `
+import { gql } from 'graphql-request';
+
+const query = gql`
   query planets($first: Int) {
     allPlanets(first: $first) {
       planets {
@@ -240,6 +249,24 @@ console.log(JSON.stringify({ data, errors, extensions, headers, status }, undefi
 
 ## [FAQ](https://github.com/prisma-labs/graphql-request/blob/master/README.md#faq)
 
+#### Why use `nuxt-graphql-request` over `@nuxtjs/apollo`?
+
+Don't get me wrong, Apollo Client is great and well maintained by the vue / nuxt community, I used Apollo Client for 18months before switching to graphql-request.
+
+However, as I am obsessed with performances, Apollo Client doesn't work for me at all:
+
+- I don't need another state management as the Vue ecosystem is enough (Vuex & Persisted data).
+- I don't need an extra ~120kb parsed in my app for fetching my data.
+- I don't need subscriptions as I use pusher.com, there are also alternatives for a WS client: [http://github.com/lunchboxer/graphql-subscriptions-client](http://github.com/lunchboxer/graphql-subscriptions-client)
+
+#### Why do I have to install `graphql`?
+
+`graphql-request` uses a TypeScript type from the `graphql` package such that if you are using TypeScript to build your project and you are using `graphql-request` but don't have `graphql` installed TypeScript build will fail. Details [here](https://github.com/prisma-labs/graphql-request/pull/183#discussion_r464453076). If you are a JS user then you do not technically need to install `graphql`. However if you use an IDE that picks up TS types even for JS (like VSCode) then its still in your interest to install `graphql` so that you can benefit from enhanced type safety during development.
+
+#### Do I need to wrap my GraphQL documents inside the `gql` template exported by `graphql-request`?
+
+No. It is there for convenience so that you can get the tooling support like prettier formatting and IDE syntax highlighting. You can use `gql` from `graphql-tag` if you need it for some reason too.
+
 ### What's the difference between `graphql-request`, Apollo and Relay?
 
 `graphql-request` is the most minimal and simplest to use GraphQL client. It's perfect for small scripts or simple apps.
@@ -251,6 +278,12 @@ Compared to GraphQL clients like Apollo or Relay, `graphql-request` doesn't have
 1. Clone this repository
 2. Install dependencies using `yarn install` or `npm install`
 3. Start development server using `yarn dev` or `npm run dev`
+
+## Roadmap
+
+- [ ] Support multiple clients
+- [ ] Support [WebSocket client](https://github.com/lunchboxer/graphql-subscriptions-client)?
+- [ ] Expose `request` function for running GraphQL queries/mutations as a static function.
 
 ## 📑 License
 
