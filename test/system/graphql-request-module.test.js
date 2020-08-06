@@ -77,6 +77,23 @@ describe('With AST', () => {
   });
 });
 
+describe('With .gql Import', () => {
+  beforeAll(async () => {
+    await setupNuxt(config);
+  });
+
+  afterAll(async () => {
+    await nuxt.close();
+  });
+
+  test('SSR', async () => {
+    const html = await get('/import');
+    expect(html).toContain('Bulbasaur');
+  });
+
+  test('CSR', async () => {
+    const window = await nuxt.renderAndGetWindow(url('/import'));
+
     window.onNuxtReady(() => {
       const html = window.document.body.innerHTML;
       expect(html).toContain('Bulbasaur');
