@@ -2,9 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/Gomah/nuxt-graphql-request/compare/v1.0.2...v3.0.0) (2020-08-06)
+
+
+### Features
+
+* **loader:** add graphql-tag/loader ([9debee3](https://github.com/Gomah/nuxt-graphql-request/commit/9debee30c410d3ace0a888da7e0a39739f2baac2))
+
+
+### Bug Fixes
+
+* add isomorphic-unfetch ([bea28c5](https://github.com/Gomah/nuxt-graphql-request/commit/bea28c538b9c9c5446d79a157a5c82eeaf794fc9))
+
+
 ### Chore
 
-- **deps:** bump graphql-request to 2.0.0 ([3a230bc](https://github.com/Gomah/nuxt-graphql-request/commit/3a230bc6ae6f5af746c4fced65fad89aaa4f407b))
+* **deps:** bump graphql-request to v3 ([cecc4ff](https://github.com/Gomah/nuxt-graphql-request/commit/cecc4ff50a07b356ed38f49caceab841fd0eb000))
+* fix changelog & package.json ([7daff95](https://github.com/Gomah/nuxt-graphql-request/commit/7daff95916af40a985da97913e6e509e61d4c768))
+* **deps:** bump graphql-request to 2.0.0 ([3a230bc](https://github.com/Gomah/nuxt-graphql-request/commit/3a230bc6ae6f5af746c4fced65fad89aaa4f407b))
+* **release:** 2.0.0 ([88ba52b](https://github.com/Gomah/nuxt-graphql-request/commit/88ba52b42416092ae0717f24f9e2defcc95f16e0))
 
 ## [2.0.0](https://github.com/Gomah/nuxt-graphql-request/compare/v1.0.2...v2.0.0) (2020-05-28)
 
