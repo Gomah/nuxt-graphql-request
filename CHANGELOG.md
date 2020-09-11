@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.0](https://github.com/Gomah/nuxt-graphql-request/compare/v3.0.0...v3.1.0) (2020-09-11)
+
+
+### Features
+
+* remove unnecessary isomorphic-unfetch ([30ef32c](https://github.com/Gomah/nuxt-graphql-request/commit/30ef32cafe0f4d9951d3a730ee176d0fa5bcbb9a))
+* **graphql-request:** update graphql-request to 3.1.0 ([b0bb0c3](https://github.com/Gomah/nuxt-graphql-request/commit/b0bb0c334ba8242af6cf8674e3e24d57aaabf562))
+
+
+### Bug Fixes
+
+* **tests:** Usee FakeQL ([75c575f](https://github.com/Gomah/nuxt-graphql-request/commit/75c575fd897c6c499f164a5e166196de885554f0))
+
 ## [3.0.0](https://github.com/Gomah/nuxt-graphql-request/compare/v1.0.2...v3.0.0) (2020-08-06)
 
 **BREAKING CHANGES**
