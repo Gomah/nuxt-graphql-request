@@ -1,30 +1,30 @@
 <template>
   <div>
-    <pre v-text="pokemons" />
+    <pre v-text="users" />
   </div>
 </template>
 
 <script>
-import pokemonsQuery from '@/graphql/query/pokemons.gql';
+import usersQuery from '@/graphql/query/users.gql';
 
 export default {
   name: 'Import',
 
   data: () => ({
-    pokemons: [],
+    users: [],
   }),
 
   head() {
     return {
-      title: 'Pokemons',
+      title: 'Users',
     };
   },
 
   async asyncData({ $graphql }) {
-    const variables = { first: 10 };
+    const variables = { page: 1, limit: 5 };
 
-    const pokemons = await $graphql.request(pokemonsQuery, variables);
-    return { pokemons };
+    const users = await $graphql.request(usersQuery, variables);
+    return { users };
   },
 };
 </script>

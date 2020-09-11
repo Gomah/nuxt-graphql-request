@@ -1,0 +1,7 @@
+query users($page: Int!, $limit: Int!) {
+  users(page: $page, limit: $limit) {
+    id
+    firstname
+    age
+  }
+}
