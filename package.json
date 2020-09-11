@@ -31,7 +31,6 @@
     "dev": "nuxt test/fixture",
     "test:system": "NODE_ENV=test jest --testRegex \"/test/system/(.+)\\.test\\.ts$\"",
     "release": "yarn test && standard-version && git push --follow-tags && npm publish",
-    "watch": "tsc --watch",
     "test": "yarn test:lint && NODE_ENV=test jest",
     "test:lint": "eslint --ext .js, lib/module.js"
   },
@@ -39,8 +38,7 @@
     "graphql": "14.x || 15.x"
   },
   "dependencies": {
-    "graphql-request": "^3.1.0",
-    "isomorphic-unfetch": "^3.0.0"
+    "graphql-request": "^3.1.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^9.1.2",
