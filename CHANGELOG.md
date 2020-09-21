@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.1](https://github.com/Gomah/nuxt-graphql-request/compare/v3.1.0...v3.1.1) (2020-09-21)
+
+
+### Bug Fixes
+
+* **polyfills:** use cross-fetch/polyfill, closes [#4](https://github.com/Gomah/nuxt-graphql-request/issues/4) ([4a8eeef](https://github.com/Gomah/nuxt-graphql-request/commit/4a8eeeff5ca0c05e9594d83bd2eed07549c61f45))
+
+
+### Internal
+
+* Fix fakeql endpoint ([8201cb6](https://github.com/Gomah/nuxt-graphql-request/commit/8201cb69d93511562c9ca9e8260fbe457ae2a15f))
+
 ## [3.1.0](https://github.com/Gomah/nuxt-graphql-request/compare/v3.0.0...v3.1.0) (2020-09-11)
 
 
