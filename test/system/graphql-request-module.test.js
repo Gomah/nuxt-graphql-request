@@ -100,3 +100,36 @@ describe('With .gql Import', () => {
     });
   });
 });
+
+describe('Uses runtime config', () => {
+    beforeAll(async () => {
+        const newConfig = {
+            ...config,
+            publicRuntimeConfig: {
+                GRAPHQL_ENDPOINT: config.endpoint,
+            },
+        };
+
+        delete newConfig.endpoint;
+
+        await setupNuxt(newConfig);
+    });
+
+    afterAll(async () => {
+        await nuxt.close();
+    });
+
+    test('SSR', async () => {
+        const html = await get('/');
+        expect(html).toContain('Mike');
+    });
+
+    test('CSR', async () => {
+        const window = await nuxt.renderAndGetWindow(url('/'));
+
+        window.onNuxtReady(() => {
+            const html = window.document.body.innerHTML;
+            expect(html).toContain('Mike');
+        });
+    });
+});
