@@ -40,7 +40,7 @@ describe('Nuxt GraphQL Request', () => {
 
   test('SSR', async () => {
     const html = await get('/');
-    expect(html).toContain('Mike');
+    expect(html).toContain('Belgium');
   });
 
   test('CSR', async () => {
@@ -48,7 +48,7 @@ describe('Nuxt GraphQL Request', () => {
 
     window.onNuxtReady(() => {
       const html = window.document.body.innerHTML;
-      expect(html).toContain('Mike');
+      expect(html).toContain('Belgium');
     });
   });
 });
@@ -64,7 +64,7 @@ describe('With AST', () => {
 
   test('SSR', async () => {
     const html = await get('/with-ast');
-    expect(html).toContain('Mike');
+    expect(html).toContain('Belgium');
   });
 
   test('CSR', async () => {
@@ -72,7 +72,7 @@ describe('With AST', () => {
 
     window.onNuxtReady(() => {
       const html = window.document.body.innerHTML;
-      expect(html).toContain('Mike');
+      expect(html).toContain('Belgium');
     });
   });
 });
@@ -88,7 +88,7 @@ describe('With .gql Import', () => {
 
   test('SSR', async () => {
     const html = await get('/import');
-    expect(html).toContain('Mike');
+    expect(html).toContain('Belgium');
   });
 
   test('CSR', async () => {
@@ -96,7 +96,7 @@ describe('With .gql Import', () => {
 
     window.onNuxtReady(() => {
       const html = window.document.body.innerHTML;
-      expect(html).toContain('Mike');
+      expect(html).toContain('Belgium');
     });
   });
 });

@@ -1,0 +1,7 @@
+query Countries($currency: String!) {
+  countries(filter: { currency: { eq: $currency } }) {
+    code
+    name
+    currency
+  }
+}
