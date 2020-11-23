@@ -24,20 +24,20 @@
 Install with yarn:
 
 ```bash
-yarn add nuxt-graphql-request graphql
+yarn add nuxt-graphql-request graphql --dev
 ```
 
 Install with npm:
 
 ```bash
-npm install nuxt-graphql-request graphql
+npm install nuxt-graphql-request graphql --save-dev
 ```
 
 **nuxt.config.js**
 
 ```ts
 module.exports = {
-  modules: ['nuxt-graphql-request'],
+  buildModules: ['nuxt-graphql-request'],
 
   graphql: {
     /**
@@ -278,6 +278,10 @@ No. It is there for convenience so that you can get the tooling support like pre
 `graphql-request` is the most minimal and simplest to use GraphQL client. It's perfect for small scripts or simple apps.
 
 Compared to GraphQL clients like Apollo or Relay, `graphql-request` doesn't have a built-in cache and has no integrations for frontend frameworks. The goal is to keep the package and API as minimal as possible.
+
+### Does nuxt-graphql-request support mutations?
+
+Sure, you can perform any GraphQL queries & mutations as before 👍
 
 ## Development
 
