@@ -1,0 +1,7 @@
+query Movies {
+  allFilms {
+    films {
+      title
+    }
+  }
+}
