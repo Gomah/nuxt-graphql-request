@@ -1,6 +1,17 @@
 <template>
   <div>
-    <pre v-text="countries" />
+    <h2>Countries</h2>
+    <ul>
+      <li v-for="country in countries">
+        {{ country.name }}
+      </li>
+    </ul>
+    <h2>Star wars movies</h2>
+    <ul>
+      <li v-for="movie in movies">
+        {{ movie.title }}
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -10,11 +21,12 @@ export default {
 
   data: () => ({
     countries: [],
+    movies: [],
   }),
 
   head() {
     return {
-      title: 'Countries',
+      title: 'Countries + Movies',
     };
   },
 
@@ -22,17 +34,29 @@ export default {
     const countriesQuery = /* GraphQL */ `
       query Countries($currency: String!) {
         countries(filter: { currency: { eq: $currency } }) {
-          code
           name
-          currency
+        }
+      }
+    `;
+    const starWarsQuery = /* GraphQL */ `
+      query Movies {
+        allFilms {
+          films {
+            title
+          }
         }
       }
     `;
 
     const variables = { currency: 'EUR' };
 
-    const countries = await $graphql.request(countriesQuery, variables);
-    return { countries };
+    const countries = await $graphql.countries.request(countriesQuery, variables);
+    const movies = await $graphql.starWars.request(starWarsQuery);
+
+    return {
+      countries: countries.countries,
+      movies: movies.allFilms.films,
+    };
   },
 };
 </script>
