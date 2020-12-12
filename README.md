@@ -41,9 +41,25 @@ module.exports = {
 
   graphql: {
     /**
-     * Your GraphQL endpoint
+     * An Object of your GraphQL clients
      */
-    endpoint: 'https://swapi-graphql.netlify.com/.netlify/functions/index',
+    clients: {
+      default: {
+        /**
+         * The client endpoint url
+         */
+        endpoint: 'https://swapi-graphql.netlify.com/.netlify/functions/index',
+        /**
+         * Per-client options overrides
+         * See: https://github.com/prisma-labs/graphql-request#passing-more-options-to-fetch
+         */
+        options: {},
+      },
+      secondClient: {
+        // ...client config
+      },
+      // ...your other clients
+    },
 
     /**
      * Options
@@ -68,14 +84,24 @@ module.exports = {
 
 ### Runtime Config
 
-If you need to supply your endpoint at runtime, rather than build time, you can use the [Runtime Config](https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-runtime-config) to provide this value:
+If you need to supply your endpoints at runtime, rather than build time, you can use the [Runtime Config](https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-runtime-config) to provide your values:
 
 **nuxt.config.js**
 
 ```ts
 module.exports = {
   publicRuntimeConfig: {
-    GRAPHQL_ENDPOINT: '<your endpoint>',
+    graphql: {
+      clients: {
+        default: {
+          endpoint: '<client endpoint>',
+        },
+        secondClient: {
+          endpoint: '<client endpoint>',
+        },
+        // ...more clients
+      },
+    },
   },
 };
 ```
@@ -101,7 +127,7 @@ async asyncData({ $graphql, params }) {
     }
   `;
 
-  const planets = await $graphql.request(query);
+  const planets = await $graphql.default.request(query);
   return { planets };
 }
 ```
@@ -124,7 +150,7 @@ methods: {
       }
     `;
 
-    const planets = await $graphql.request(query);
+    const planets = await $graphql.default.request(query);
     this.$set(this, 'planets', planets);
   }
 }
@@ -150,7 +176,7 @@ import { gql } from 'graphql-request';
         }
       `;
 
-      const planets = await this.$graphql.request(query);
+      const planets = await this.$graphql.default.request(query);
       commit('SET_PLANETS', planets)
     }
   }
@@ -170,10 +196,14 @@ In nuxt.config.ts
 
 module.exports = {
   graphql: {
-    endpoint: 'https://swapi-graphql.netlify.com/.netlify/functions/index',
-    options: {
-      headers: {
-        authorization: 'Bearer MY_TOKEN',
+    clients: {
+      default: {
+        endpoint: 'https://swapi-graphql.netlify.com/.netlify/functions/index',
+        options: {
+          headers: {
+            authorization: 'Bearer MY_TOKEN',
+          },
+        },
       },
     },
   },
@@ -183,9 +213,9 @@ module.exports = {
 Or using setHeaders / setHeader:
 
 ```ts
-this.$graphql.setHeaders({ authorization: 'Bearer MY_TOKEN' });
+this.$graphql.default.setHeaders({ authorization: 'Bearer MY_TOKEN' });
 
-this.$graphql.setHeader('authorization', 'Bearer MY_TOKEN');
+this.$graphql.default.setHeader('authorization', 'Bearer MY_TOKEN');
 ```
 
 #### Passing more options to fetch
@@ -197,10 +227,14 @@ In nuxt.config.ts:
 
 module.exports = {
   graphql: {
-    endpoint: 'https://swapi-graphql.netlify.com/.netlify/functions/index',
-    options: {
-      credentials: 'include',
-      mode: 'cors',
+    clients: {
+      default: {
+        endpoint: 'https://swapi-graphql.netlify.com/.netlify/functions/index',
+        options: {
+          credentials: 'include',
+          mode: 'cors',
+        },
+      },
     },
   },
 };
@@ -209,13 +243,13 @@ module.exports = {
 Or using setHeaders / setHeader:
 
 ```ts
-this.$graphql.setHeaders({
+this.$graphql.default.setHeaders({
   credentials: 'include',
   mode: 'cors',
 });
 
-this.$graphql.setHeader('credentials', 'include');
-this.$graphql.setHeader('mode', 'cors');
+this.$graphql.default.setHeader('credentials', 'include');
+this.$graphql.default.setHeader('mode', 'cors');
 ```
 
 #### Using variables
@@ -236,7 +270,7 @@ const query = gql`
 
 const variables = { first: 10 };
 
-const planets = await $graphql.request(query, variables);
+const planets = await $graphql.default.request(query, variables);
 ```
 
 #### Receiving a raw response
@@ -259,7 +293,7 @@ const query = gql`
 
 const variables = { first: 10 };
 
-const { data, errors, extensions, headers, status } = await $graphql.rawRequest(
+const { data, errors, extensions, headers, status } = await $graphql.default.rawRequest(
   endpoint,
   query,
   variables
@@ -305,7 +339,6 @@ Sure, you can perform any GraphQL queries & mutations as before 👍
 
 ## Roadmap
 
-- [ ] Support multiple clients
 - [ ] Support [WebSocket client](https://github.com/lunchboxer/graphql-subscriptions-client)?
 - [ ] Expose `request` function for running GraphQL queries/mutations as a static function.
 
