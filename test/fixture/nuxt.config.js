@@ -5,7 +5,7 @@ module.exports = {
   srcDir: __dirname,
   modules: ['../../lib/module'],
   graphql: {
-    endpoint: 'https://fakeql.com/graphql/71e21b32b0b1b8e5661f9a117183be66',
+    endpoint: 'https://fakeql.com/graphql/53f4cad2a689cc14f5d23416069a705c',
     options: {},
   },
   dev: process.env.NODE_ENV !== 'test' && process.env.NODE_ENV === 'production',
