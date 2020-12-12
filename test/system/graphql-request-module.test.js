@@ -146,6 +146,7 @@ describe('Uses runtime config', () => {
 
     window.onNuxtReady(() => {
       const html = window.document.body.innerHTML;
+      expect(html).toContain('Belgium');
       expect(html).toContain('A New Hope');
     });
   });
