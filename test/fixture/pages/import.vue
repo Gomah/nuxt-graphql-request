@@ -1,30 +1,30 @@
 <template>
   <div>
-    <pre v-text="users" />
+    <pre v-text="countries" />
   </div>
 </template>
 
 <script>
-import usersQuery from '@/graphql/query/users.gql';
+import countriesQuery from '@/graphql/query/countries.gql';
 
 export default {
   name: 'Import',
 
   data: () => ({
-    users: [],
+    countries: [],
   }),
 
   head() {
     return {
-      title: 'Users',
+      title: 'Countries',
     };
   },
 
   async asyncData({ $graphql }) {
-    const variables = { page: 1, limit: 5 };
+    const variables = { currency: 'EUR' };
 
-    const users = await $graphql.request(usersQuery, variables);
-    return { users };
+    const countries = await $graphql.request(countriesQuery, variables);
+    return { countries };
   },
 };
 </script>

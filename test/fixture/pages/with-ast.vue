@@ -1,6 +1,6 @@
 <template>
   <div>
-    <pre v-text="users" />
+    <pre v-text="countries" />
   </div>
 </template>
 
@@ -11,30 +11,30 @@ export default {
   name: 'WithAST',
 
   data: () => ({
-    users: [],
+    countries: [],
   }),
 
   head() {
     return {
-      title: 'Users',
+      title: 'Countries',
     };
   },
 
   async asyncData({ app }) {
-    const usersQuery = gql`
-      query users($page: Int!, $limit: Int!) {
-        users(page: $page, limit: $limit) {
-          id
-          firstname
-          age
+    const countriesQuery = gql`
+      query Countries($currency: String!) {
+        countries(filter: { currency: { eq: $currency } }) {
+          code
+          name
+          currency
         }
       }
     `;
 
-    const variables = { page: 1, limit: 5 };
+    const variables = { currency: 'EUR' };
 
-    const users = await app.$graphql.request(usersQuery, variables);
-    return { users };
+    const countries = await app.$graphql.request(countriesQuery, variables);
+    return { countries };
   },
 };
 </script>

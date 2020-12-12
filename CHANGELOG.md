@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.3](https://github.com/Gomah/nuxt-graphql-request/compare/v3.1.2...v3.1.3) (2020-10-29)
+
+
+### Internal
+
+* Use countries public API ([aecf4b6](https://github.com/Gomah/nuxt-graphql-request/commit/aecf4b6ee163dbc6474d04ead514494cd0a5931a))
+
+
+### Chore
+
+* **deps:** upgrade dependencies ([689e6a8](https://github.com/Gomah/nuxt-graphql-request/commit/689e6a8e5c3d75b947fc4d743000b14a9d7408e7))
+
 ### [3.1.2](https://github.com/Gomah/nuxt-graphql-request/compare/v3.1.1...v3.1.2) (2020-09-24)
 
 
