@@ -41,7 +41,7 @@ module.exports = {
 
   graphql: {
     /**
-     * Your GraphQL endpoint (required)
+     * Your GraphQL endpoint
      */
     endpoint: 'https://swapi-graphql.netlify.com/.netlify/functions/index',
 
@@ -62,6 +62,20 @@ module.exports = {
      * default: false (this includes graphql-tag for node_modules folder)
      */
     includeNodeModules: true,
+  },
+};
+```
+
+### Runtime Config
+
+If you need to supply your endpoint at runtime, rather than build time, you can use the [Runtime Config](https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-runtime-config) to provide this value:
+
+**nuxt.config.js**
+
+```ts
+module.exports = {
+  publicRuntimeConfig: {
+    GRAPHQL_ENDPOINT: '<your endpoint>',
   },
 };
 ```
@@ -267,7 +281,7 @@ However, as I am obsessed with performances, Apollo Client doesn't work for me a
 
 #### Why do I have to install `graphql`?
 
-`graphql-request` uses a TypeScript type from the `graphql` package such that if you are using TypeScript to build your project and you are using `graphql-request` but don't have `graphql` installed TypeScript build will fail. Details [here](https://github.com/prisma-labs/graphql-request/pull/183#discussion_r464453076). If you are a JS user then you do not technically need to install `graphql`. However if you use an IDE that picks up TS types even for JS (like VSCode) then its still in your interest to install `graphql` so that you can benefit from enhanced type safety during development.
+`graphql-request` uses a TypeScript type from the `graphql` package such that if you are using TypeScript to build your project and you are using `graphql-request` but don't have `graphql` installed TypeScript build will fail. Details [here](https://github.com/prisma-labs/graphql-request/pull/183#discussion_r464453076). If you are a JS user then you do not technically need to install `graphql`. However, if you use an IDE that picks up TS types even for JS (like VSCode) then it's still in your interest to install `graphql` so that you can benefit from enhanced type safety during development.
 
 #### Do I need to wrap my GraphQL documents inside the `gql` template exported by `graphql-request`?
 
