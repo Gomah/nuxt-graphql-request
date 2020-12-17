@@ -188,6 +188,35 @@ this.$graphql.setHeaders({ authorization: 'Bearer MY_TOKEN' });
 this.$graphql.setHeader('authorization', 'Bearer MY_TOKEN');
 ```
 
+#### passing-headers-in-each-request
+
+It is possible to pass custom headers for each request. `request()` and `rawRequest()` accept a header object as the third parameter
+
+```ts
+const requestHeaders = {
+  authorization: 'Bearer MY_TOKEN'
+}
+
+methods: {
+  async fetchSomething() {
+    const query = gql`
+      query planets {
+        allPlanets {
+          planets {
+            id
+            name
+          }
+        }
+      }
+    `;
+
+    // Overrides the clients headers with the passed values
+    const planets = await $graphql.request(query, {}, requestHeaders);
+    this.$set(this, 'planets', planets);
+  }
+}
+```
+
 #### Passing more options to fetch
 
 In nuxt.config.ts:

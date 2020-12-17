@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "cross-fetch": "^3.0.6",
-    "graphql-request": "^3.3.0"
+    "graphql-request": "^3.4.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
