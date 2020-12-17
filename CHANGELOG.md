@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.2.0](https://github.com/Gomah/nuxt-graphql-request/compare/v3.1.3...v3.2.0) (2020-12-17)
+
+
+### Features
+
+* **config:** allow for runtime config ([49239b6](https://github.com/Gomah/nuxt-graphql-request/commit/49239b651668c5ccd29a059b22b0698c73ed2b3f))
+* **docs:** update readme with runtimeConfig ([7807b72](https://github.com/Gomah/nuxt-graphql-request/commit/7807b723f4d18225ed699383f430f2269d8b8b1e))
+
+
+### Bug Fixes
+
+* **module:** removed logic around endpoint being required ([b9e8fd8](https://github.com/Gomah/nuxt-graphql-request/commit/b9e8fd8799e029507514d01feab6fa907fe97291))
+
+
+### Styling
+
+* **intentation:** fixes indentation on tests ([fcdc7d4](https://github.com/Gomah/nuxt-graphql-request/commit/fcdc7d4d7a49b5f6e80d9c3ca451d20eda271605))
+
+
+### Chore
+
+* **deps:** bump graphql-request to 3.4.0 ([39c7ae5](https://github.com/Gomah/nuxt-graphql-request/commit/39c7ae5e66abcc086ef7f002b1fde977b640b255))
+
 ### [3.1.3](https://github.com/Gomah/nuxt-graphql-request/compare/v3.1.2...v3.1.3) (2020-10-29)
 
 
