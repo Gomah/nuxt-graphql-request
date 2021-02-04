@@ -1,8 +1,8 @@
 import Vue from 'vue';
-import Client, { GraphQLClient } from 'graphql-request';
 import './vuex';
-import { Variables, GraphQLError } from 'graphql-request/dist/src/types';
-import { ASTNode } from 'graphql';
+import type { GraphQLClient } from 'graphql-request';
+import type { Variables, GraphQLError } from 'graphql-request/dist/types';
+import type { ASTNode } from 'graphql';
 
 interface NuxtGraphQLInstance extends GraphQLClient {
   rawRequest<T extends any>(
