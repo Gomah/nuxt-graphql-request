@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.2.1](https://github.com/Gomah/nuxt-graphql-request/compare/v3.2.0...v3.2.1) (2021-02-04)
+
+
+### Bug Fixes
+
+* export graphql-request functions ([1869d3d](https://github.com/Gomah/nuxt-graphql-request/commit/1869d3d5be72b5ed7f30ae5fdba0d8ed8bb5ecb2))
+* types import ([538687a](https://github.com/Gomah/nuxt-graphql-request/commit/538687acea5478921ee20dddc48283918680e325))
+
+
+### Chore
+
+* add .vscode config ([eeac8b6](https://github.com/Gomah/nuxt-graphql-request/commit/eeac8b64c283251d7af067888adb04810799923f))
+* **deps:** upgrade dependencies ([004624a](https://github.com/Gomah/nuxt-graphql-request/commit/004624a86dfbfe25695ccbe49eb58b9269977588))
+
+
+### Documentation
+
+* init documentation ([b3b5702](https://github.com/Gomah/nuxt-graphql-request/commit/b3b57028b016f2dbab4a0cd88315cb0896f8e0ee))
+
 ## [3.2.0](https://github.com/Gomah/nuxt-graphql-request/compare/v3.1.3...v3.2.0) (2020-12-17)
 
 
