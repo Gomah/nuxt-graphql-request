@@ -336,7 +336,7 @@ Sure, you can perform any GraphQL queries & mutations as before 👍
 
 - [ ] Support multiple clients
 - [ ] Support [WebSocket client](https://github.com/lunchboxer/graphql-subscriptions-client)?
-- [ ] Expose `request` function for running GraphQL queries/mutations as a static function.
+- [ ] Generate [Typed Graphql-request client](https://graphql-code-generator.com/docs/plugins/typescript-graphql-request)
 
 ## 📑 License
 
