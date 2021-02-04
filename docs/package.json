@@ -1,0 +1,16 @@
+{
+  "name": "nuxt-graphql-request-docs",
+  "version": "1.0.1",
+  "description": "Docs for nuxt-graphql-request",
+  "private": true,
+  "author": "Thomas Marrec - @Gomah (https://gomah.fr)",
+  "scripts": {
+    "dev": "nuxt",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxt/content-theme-docs": "^0.9.0",
+    "nuxt": "^2.14.12"
+  }
+}

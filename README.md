@@ -1,3 +1,5 @@
+[![nuxt-graphql-request](https://nuxt-graphql-request.vercel.app/preview.png)](https://nuxt-graphql-request.vercel.app)
+
 # 📡 GraphQL Request Module
 
 [![circleci][circleci-src]][circleci-href]
@@ -87,7 +89,7 @@ module.exports = {
 **`asyncData`**
 
 ```ts
-import { gql } from 'graphql-request';
+import { gql } from 'nuxt-graphql-request';
 
 async asyncData({ $graphql, params }) {
   const query = gql`
@@ -109,7 +111,7 @@ async asyncData({ $graphql, params }) {
 **`methods`/`created`/`mounted`/etc**
 
 ```ts
-import { gql } from 'graphql-request';
+import { gql } from 'nuxt-graphql-request';
 
 methods: {
   async fetchSomething() {
@@ -133,7 +135,7 @@ methods: {
 ### Store actions (including `nuxtServerInit`)
 
 ```ts
-import { gql } from 'graphql-request';
+import { gql } from 'nuxt-graphql-request';
 
 // In store
 {
@@ -180,44 +182,52 @@ module.exports = {
 };
 ```
 
-Or using setHeaders / setHeader:
+##### Incrementally setting headers
+
+If you want to set headers after the GraphQLClient has been initialised, you can use the `setHeader()` or `setHeaders()` functions.
 
 ```ts
+// Set a single header
 this.$graphql.setHeaders({ authorization: 'Bearer MY_TOKEN' });
 
+// Override all existing headers
 this.$graphql.setHeader('authorization', 'Bearer MY_TOKEN');
 ```
 
-#### passing-headers-in-each-request
+##### passing-headers-in-each-request
 
 It is possible to pass custom headers for each request. `request()` and `rawRequest()` accept a header object as the third parameter
 
-```ts
+```vue
+<script>
 const requestHeaders = {
-  authorization: 'Bearer MY_TOKEN'
-}
+  authorization: 'Bearer MY_TOKEN',
+};
 
-methods: {
-  async fetchSomething() {
-    const query = gql`
-      query planets {
-        allPlanets {
-          planets {
-            id
-            name
+export default {
+  methods: {
+    async fetchSomething() {
+      const query = gql`
+        query planets {
+          allPlanets {
+            planets {
+              id
+              name
+            }
           }
         }
-      }
-    `;
+      `;
 
-    // Overrides the clients headers with the passed values
-    const planets = await $graphql.request(query, {}, requestHeaders);
-    this.$set(this, 'planets', planets);
-  }
-}
+      // Overrides the clients headers with the passed values
+      const planets = await $graphql.request(query, {}, requestHeaders);
+      this.$set(this, 'planets', planets);
+    },
+  },
+};
+</script>
 ```
 
-#### Passing more options to fetch
+#### Passing more options to `fetch`
 
 In nuxt.config.ts:
 
@@ -238,34 +248,107 @@ module.exports = {
 Or using setHeaders / setHeader:
 
 ```ts
+// Set a single header
+this.$graphql.setHeader('credentials', 'include');
+this.$graphql.setHeader('mode', 'cors');
+
+// Override all existing headers
 this.$graphql.setHeaders({
   credentials: 'include',
   mode: 'cors',
 });
-
-this.$graphql.setHeader('credentials', 'include');
-this.$graphql.setHeader('mode', 'cors');
 ```
 
-#### Using variables
+#### Using GraphQL Document variables
 
-```ts
-import { gql } from 'graphql-request';
+```vue
+<script>
+import { gql } from 'nuxt-graphql-request';
 
-const query = gql`
-  query planets($first: Int) {
-    allPlanets(first: $first) {
-      planets {
-        id
-        name
+export default {
+  methods: {
+    async fetchSomething() {
+      const query = gql`
+        query planets($first: Int) {
+          allPlanets(first: $first) {
+            planets {
+              id
+              name
+            }
+          }
+        }
+      `;
+
+      const variables = { first: 10 };
+
+      const planets = await this.$graphql.request(query, variables);
+    },
+  },
+};
+</script>
+```
+
+#### GraphQL Mutations
+
+```vue
+<script>
+import { gql } from 'nuxt-graphql-request';
+
+export default {
+  methods: {
+    async fetchSomething() {
+      const query = gql`
+        {
+          Movie(title: "Inception") {
+            releaseDate
+            actors {
+              fullname # "Cannot query field 'fullname' on type 'Actor'. Did you mean 'name'?"
+            }
+          }
+        }
+      `;
+
+      try {
+        const data = await this.$graphql.request(endpoint, query);
+        console.log(JSON.stringify(data, undefined, 2));
+      } catch (error) {
+        console.error(JSON.stringify(error, undefined, 2));
+        process.exit(1);
       }
-    }
-  }
-`;
+    },
+  },
+};
+</script>
+```
 
-const variables = { first: 10 };
+#### Error handling
 
-const planets = await $graphql.request(query, variables);
+```vue
+<script>
+import { gql } from 'nuxt-graphql-request';
+
+export default {
+  methods: {
+    async fetchSomething() {
+      const mutation = gql`
+        mutation AddMovie($title: String!, $releaseDate: Int!) {
+          insert_movies_one(object: { title: $title, releaseDate: $releaseDate }) {
+            title
+            releaseDate
+          }
+        }
+      `;
+
+      const variables = {
+        title: 'Inception',
+        releaseDate: 2010,
+      };
+
+      const data = await this.$graphql.request(mutation, variables);
+    },
+  },
+};
+</script>
 ```
 
 #### Receiving a raw response
@@ -273,7 +356,7 @@ const planets = await $graphql.request(query, variables);
 The `request` method will return the `data` or `errors` key from the response. If you need to access the `extensions` key you can use the `rawRequest` method:
 
 ```ts
-import { gql } from 'graphql-request';
+import { gql } from 'nuxt-graphql-request';
 
 const query = gql`
   query planets($first: Int) {
@@ -288,12 +371,35 @@ const query = gql`
 
 const variables = { first: 10 };
 
-const { data, errors, extensions, headers, status } = await $graphql.rawRequest(
+const { data, errors, extensions, headers, status } = await this.$graphql.rawRequest(
   endpoint,
   query,
   variables
 );
 console.log(JSON.stringify({ data, errors, extensions, headers, status }, undefined, 2));
+```
+
+#### File Upload
+
+```vue
+<script>
+import { gql } from 'nuxt-graphql-request';
+export default {
+  methods: {
+    handleFileUpload(file) {
+      const mutation = gql`
+        mutation uploadUserAvatar($userId: Int!, $file: Upload!) {
+          updateUser(id: $userId, input: { avatar: $file })
+        }
+      `;
+
+      const variables = { userId: 1, file };
+
+      this.$graphql.request(mutation, variables);
+    },
+  },
+};
+</script>
 ```
 
 ## [FAQ](https://github.com/prisma-labs/graphql-request/blob/master/README.md#faq)

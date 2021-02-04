@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { gql } from 'graphql-request';
+import { gql } from '../../../lib/module';
 
 export default {
   name: 'WithAST',
