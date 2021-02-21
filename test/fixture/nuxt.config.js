@@ -5,7 +5,14 @@ module.exports = {
   srcDir: __dirname,
   modules: ['../../lib/module'],
   graphql: {
-    endpoint: 'https://countries.trevorblades.com/',
+    clients: {
+      countries: {
+        endpoint: 'https://countries.trevorblades.com/'
+      },
+      starWars: {
+        endpoint: 'https://swapi-graphql.netlify.app/.netlify/functions/index',
+      },
+    },
     options: {},
   },
   dev: process.env.NODE_ENV !== 'test' && process.env.NODE_ENV === 'production',

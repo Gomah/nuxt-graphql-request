@@ -41,6 +41,7 @@ describe('Nuxt GraphQL Request', () => {
   test('SSR', async () => {
     const html = await get('/');
     expect(html).toContain('Belgium');
+    expect(html).toContain('A New Hope');
   });
 
   test('CSR', async () => {
@@ -49,6 +50,7 @@ describe('Nuxt GraphQL Request', () => {
     window.onNuxtReady(() => {
       const html = window.document.body.innerHTML;
       expect(html).toContain('Belgium');
+      expect(html).toContain('A New Hope');
     });
   });
 });
@@ -65,6 +67,7 @@ describe('With AST', () => {
   test('SSR', async () => {
     const html = await get('/with-ast');
     expect(html).toContain('Belgium');
+    expect(html).toContain('A New Hope');
   });
 
   test('CSR', async () => {
@@ -73,6 +76,7 @@ describe('With AST', () => {
     window.onNuxtReady(() => {
       const html = window.document.body.innerHTML;
       expect(html).toContain('Belgium');
+      expect(html).toContain('A New Hope');
     });
   });
 });
@@ -89,6 +93,7 @@ describe('With .gql Import', () => {
   test('SSR', async () => {
     const html = await get('/import');
     expect(html).toContain('Belgium');
+    expect(html).toContain('A New Hope');
   });
 
   test('CSR', async () => {
@@ -97,6 +102,7 @@ describe('With .gql Import', () => {
     window.onNuxtReady(() => {
       const html = window.document.body.innerHTML;
       expect(html).toContain('Belgium');
+      expect(html).toContain('A New Hope');
     });
   });
 });
@@ -106,11 +112,21 @@ describe('Uses runtime config', () => {
     const newConfig = {
       ...config,
       publicRuntimeConfig: {
-        GRAPHQL_ENDPOINT: config.endpoint,
+        graphql: {
+          clients: {
+            countries: {
+              endpoint: config.graphql.clients.countries.endpoint,
+            },
+            starWars: {
+              endpoint: config.graphql.clients.starWars.endpoint,
+            },
+          },
+        },
       },
     };
 
-    delete newConfig.endpoint;
+    delete newConfig.graphql.clients.countries.endpoint;
+    delete newConfig.graphql.clients.starWars.endpoint;
 
     await setupNuxt(newConfig);
   });
@@ -122,6 +138,7 @@ describe('Uses runtime config', () => {
   test('SSR', async () => {
     const html = await get('/');
     expect(html).toContain('Belgium');
+    expect(html).toContain('A New Hope');
   });
 
   test('CSR', async () => {
@@ -130,6 +147,7 @@ describe('Uses runtime config', () => {
     window.onNuxtReady(() => {
       const html = window.document.body.innerHTML;
       expect(html).toContain('Belgium');
+      expect(html).toContain('A New Hope');
     });
   });
 });
