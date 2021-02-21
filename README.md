@@ -117,8 +117,9 @@ module.exports = {
 ```ts
 import { gql } from 'nuxt-graphql-request';
 
-async asyncData({ $graphql, params }) {
-  const query = gql`
+export default {
+  async asyncData({$graphql, params}) {
+    const query = gql`
     query planets {
       allPlanets {
         planets {
@@ -129,9 +130,10 @@ async asyncData({ $graphql, params }) {
     }
   `;
 
-  const planets = await $graphql.default.request(query);
-  return { planets };
-}
+    const planets = await this.$graphql.default.request(query);
+    return { planets };
+  },
+};
 ```
 
 **`methods`/`created`/`mounted`/etc**
@@ -139,9 +141,10 @@ async asyncData({ $graphql, params }) {
 ```ts
 import { gql } from 'nuxt-graphql-request';
 
-methods: {
-  async fetchSomething() {
-    const query = gql`
+export default {
+  methods: {
+    async fetchSomething() {
+      const query = gql`
       query planets {
         allPlanets {
           planets {
@@ -152,10 +155,11 @@ methods: {
       }
     `;
 
-    const planets = await $graphql.default.request(query);
-    this.$set(this, 'planets', planets);
-  }
-}
+      const planets = await this.$graphql.default.request(query);
+      this.$set(this, 'planets', planets);
+    },
+  },
+};
 ```
 
 ### Store actions (including `nuxtServerInit`)
@@ -164,7 +168,7 @@ methods: {
 import { gql } from 'nuxt-graphql-request';
 
 // In store
-{
+export default {
   actions: {
     async fetchAllPlanets ({ commit }) {
       const query = gql`
@@ -179,10 +183,10 @@ import { gql } from 'nuxt-graphql-request';
       `;
 
       const planets = await this.$graphql.default.request(query);
-      commit('SET_PLANETS', planets)
-    }
-  }
-}
+      commit('SET_PLANETS', planets);
+    },
+  },
+};
 ```
 
 ### GraphQL Request Client
@@ -249,7 +253,7 @@ export default {
       `;
 
       // Overrides the clients headers with the passed values
-      const planets = await $graphql.default.request(query, {}, requestHeaders);
+      const planets = await this.$graphql.default.request(query, {}, requestHeaders);
       this.$set(this, 'planets', planets);
     },
   },
@@ -418,6 +422,7 @@ console.log(JSON.stringify({ data, errors, extensions, headers, status }, undefi
 ```vue
 <script>
 import { gql } from 'nuxt-graphql-request';
+
 export default {
   methods: {
     handleFileUpload(file) {
