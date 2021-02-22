@@ -26,7 +26,7 @@ export default {
         releaseDate: 2010,
       };
 
-      const data = await this.$graphql.request(mutation, variables);
+      const data = await this.$graphql.default.request(mutation, variables);
     },
   },
 };

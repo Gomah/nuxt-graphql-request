@@ -118,7 +118,7 @@ module.exports = {
 import { gql } from 'nuxt-graphql-request';
 
 export default {
-  async asyncData({$graphql, params}) {
+  async asyncData({ $graphql, params }) {
     const query = gql`
       query planets {
         allPlanets {
@@ -170,7 +170,7 @@ import { gql } from 'nuxt-graphql-request';
 // In store
 export default {
   actions: {
-    async fetchAllPlanets ({ commit }) {
+    async fetchAllPlanets({ commit }) {
       const query = gql`
         query planets {
           allPlanets {
@@ -381,7 +381,7 @@ export default {
         title: 'Inception',
         releaseDate: 2010,
       };
-        
+
       const data = await this.$graphql.default.request(mutation, variables);
     },
   },

@@ -10,10 +10,14 @@ category: 'Examples'
 
 module.exports = {
   graphql: {
-    endpoint: 'https://swapi-graphql.netlify.com/.netlify/functions/index',
-    options: {
-      headers: {
-        authorization: 'Bearer MY_TOKEN',
+    clients: {
+      default: {
+        endpoint: 'https://swapi-graphql.netlify.com/.netlify/functions/index',
+        options: {
+          headers: {
+            authorization: 'Bearer MY_TOKEN',
+          },
+        },
       },
     },
   },
@@ -26,10 +30,10 @@ If you want to set headers after the GraphQLClient has been initialised, you can
 
 ```ts
 // Set a single header
-this.$graphql.setHeaders({ authorization: 'Bearer MY_TOKEN' });
+this.$graphql.default.setHeaders({ authorization: 'Bearer MY_TOKEN' });
 
 // Override all existing headers
-this.$graphql.setHeader('authorization', 'Bearer MY_TOKEN');
+this.$graphql.default.setHeader('authorization', 'Bearer MY_TOKEN');
 ```
 
 ### passing-headers-in-each-request
@@ -57,7 +61,7 @@ export default {
       `;
 
       // Overrides the clients headers with the passed values
-      const planets = await $graphql.request(query, {}, requestHeaders);
+      const planets = await this.$graphql.default.request(query, {}, requestHeaders);
       this.$set(this, 'planets', planets);
     },
   },

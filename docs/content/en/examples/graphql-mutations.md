@@ -24,7 +24,7 @@ export default {
       `;
 
       try {
-        const data = await this.$graphql.request(endpoint, query);
+        const data = await this.$graphql.default.request(endpoint, query);
         console.log(JSON.stringify(data, undefined, 2));
       } catch (error) {
         console.error(JSON.stringify(error, undefined, 2));

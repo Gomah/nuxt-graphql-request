@@ -27,9 +27,25 @@ module.exports = {
 
   graphql: {
     /**
-     * Your GraphQL endpoint
+     * An Object of your GraphQL clients
      */
-    endpoint: 'https://swapi-graphql.netlify.com/.netlify/functions/index',
+    clients: {
+      default: {
+        /**
+         * The client endpoint url
+         */
+        endpoint: 'https://swapi-graphql.netlify.com/.netlify/functions/index',
+        /**
+         * Per-client options overrides
+         * See: https://github.com/prisma-labs/graphql-request#passing-more-options-to-fetch
+         */
+        options: {},
+      },
+      secondClient: {
+        // ...client config
+      },
+      // ...your other clients
+    },
 
     /**
      * Options
@@ -61,7 +77,17 @@ If you need to supply your endpoint at runtime, rather than build time, you can 
 ```ts
 module.exports = {
   publicRuntimeConfig: {
-    GRAPHQL_ENDPOINT: '<your endpoint>',
+    graphql: {
+      clients: {
+        default: {
+          endpoint: '<client endpoint>',
+        },
+        secondClient: {
+          endpoint: '<client endpoint>',
+        },
+        // ...more clients
+      },
+    },
   },
 };
 ```

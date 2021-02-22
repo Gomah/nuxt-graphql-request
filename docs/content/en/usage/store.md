@@ -11,9 +11,9 @@ category: 'Usage'
 import { gql } from 'nuxt-graphql-request';
 
 // In store
-{
+export default {
   actions: {
-    async fetchAllPlanets ({ commit }) {
+    async fetchAllPlanets({ commit }) {
       const query = gql`
         query planets {
           allPlanets {
@@ -25,9 +25,9 @@ import { gql } from 'nuxt-graphql-request';
         }
       `;
 
-      const planets = await this.$graphql.request(query);
-      commit('SET_PLANETS', planets)
-    }
-  }
-}
+      const planets = await this.$graphql.default.request(query);
+      commit('SET_PLANETS', planets);
+    },
+  },
+};
 ```
