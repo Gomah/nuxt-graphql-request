@@ -1,7 +1,9 @@
-import type { NuxtGraphQLInstance } from '.';
+import type { GraphQLClient } from 'graphql-request';
 
 declare module 'vuex/types/index' {
   interface Store<S> {
-    $graphql: NuxtGraphQLInstance;
+    $graphql: {
+      [client: string]: GraphQLClient;
+    };
   }
 }

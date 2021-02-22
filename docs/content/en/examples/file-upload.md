@@ -20,7 +20,7 @@ export default {
 
       const variables = { userId: 1, file };
 
-      this.$graphql.request(mutation, variables);
+      this.$graphql.default.request(mutation, variables);
     },
   },
 };

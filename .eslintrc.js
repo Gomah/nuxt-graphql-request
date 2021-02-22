@@ -10,6 +10,6 @@ module.exports = {
     jest: true,
     node: true,
   },
-  extends: ['prettier', 'prettier/vue'],
+  extends: ['prettier'],
   plugins: ['prettier', 'vue'],
 };

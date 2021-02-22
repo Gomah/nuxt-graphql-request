@@ -8,18 +8,49 @@ category: 'Usage'
 ## `asyncData`
 
 ```ts
-async asyncData({ $shopify, params }) {
-  const product = await $shopify.product.fetch(params.id);
-  return { product };
-}
+import { gql } from 'nuxt-graphql-request';
+
+export default {
+  async asyncData({ $graphql, params }) {
+    const query = gql`
+      query planets {
+        allPlanets {
+          planets {
+            id
+            name
+          }
+        }
+      }
+    `;
+
+    const planets = await $graphql.default.request(query);
+    return { planets };
+  },
+};
 ```
 
 ## `methods`/`created`/`mounted`/etc
 
 ```ts
-methods: {
-  async fetchProduct(productId) {
-    this.product = await this.$shopify.product.fetch(productId);
-  }
-}
+import { gql } from 'nuxt-graphql-request';
+
+export default {
+  methods: {
+    async fetchSomething() {
+      const query = gql`
+        query planets {
+          allPlanets {
+            planets {
+              id
+              name
+            }
+          }
+        }
+      `;
+
+      const planets = await this.$graphql.default.request(query);
+      this.$set(this, 'planets', planets);
+    },
+  },
+};
 ```

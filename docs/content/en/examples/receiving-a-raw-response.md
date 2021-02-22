@@ -23,7 +23,7 @@ const query = gql`
 
 const variables = { first: 10 };
 
-const { data, errors, extensions, headers, status } = await this.$graphql.rawRequest(
+const { data, errors, extensions, headers, status } = await this.$graphql.default.rawRequest(
   endpoint,
   query,
   variables

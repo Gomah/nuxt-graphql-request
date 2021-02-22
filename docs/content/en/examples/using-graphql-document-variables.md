@@ -25,7 +25,7 @@ export default {
 
       const variables = { first: 10 };
 
-      const planets = await this.$graphql.request(query, variables);
+      const planets = await this.$graphql.default.request(query, variables);
     },
   },
 };
