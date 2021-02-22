@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0](https://github.com/Gomah/nuxt-graphql-request/compare/v3.2.1...v4.0.0) (2021-02-22)
+
+
+### Features
+
+* **docs:** updates readme with multiple client configs ([06a72ed](https://github.com/Gomah/nuxt-graphql-request/commit/06a72ed4ce1d5158fa17f333e1f4d4e5b3e32e01))
+* **docs:** updates readme with multiple client configs ([b12e799](https://github.com/Gomah/nuxt-graphql-request/commit/b12e79919b38f016ababc7d17a1ef9e28d14ca99))
+* **multiple clients:** add ability to define multiple clients ([e8b3a9d](https://github.com/Gomah/nuxt-graphql-request/commit/e8b3a9dee8936d5cb3bb9d6ec845f8d6ad3f9991))
+* **multiple clients:** add ability to define multiple clients ([5790502](https://github.com/Gomah/nuxt-graphql-request/commit/579050212d1899b5a3736797b1f8d646b2f2537a))
+
+
+### Internal
+
+* **multiple clients:** use reduce instead of reduce + map, and remove clients output ([f9103f9](https://github.com/Gomah/nuxt-graphql-request/commit/f9103f93077c8eb706a927a53f67294f00aa76c1))
+* **multiple clients:** use reduce instead of reduce + map, and remove clients output ([3259b0f](https://github.com/Gomah/nuxt-graphql-request/commit/3259b0f1ef257c9ab822f12a5d5c5910558ab974))
+
+
+### Documentation
+
+* fixed asyncData call ([6268368](https://github.com/Gomah/nuxt-graphql-request/commit/62683682cdbf52ebfda047a1950997abd85ff133))
+* update docs for v4 ([25b1191](https://github.com/Gomah/nuxt-graphql-request/commit/25b11915098ce568646651164c411f610136300d))
+
+
+### Chore
+
+* **deps:** upgrade dependencies ([bc256eb](https://github.com/Gomah/nuxt-graphql-request/commit/bc256ebdf858499f1ccc3487cc1fc8ee87a2cc66))
+
 ### [3.2.1](https://github.com/Gomah/nuxt-graphql-request/compare/v3.2.0...v3.2.1) (2021-02-04)
 
 
