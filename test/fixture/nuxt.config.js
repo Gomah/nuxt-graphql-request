@@ -7,7 +7,7 @@ module.exports = {
   graphql: {
     clients: {
       countries: {
-        endpoint: 'https://countries.trevorblades.com/'
+        endpoint: 'https://countries.trevorblades.com/',
       },
       starWars: {
         endpoint: 'https://swapi-graphql.netlify.app/.netlify/functions/index',

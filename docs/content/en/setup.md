@@ -91,3 +91,33 @@ module.exports = {
   },
 };
 ```
+
+## TypeScript
+
+`nuxt-shopify` offers type definitions. Just add an entry in `tsconfig.json`.
+
+<code-group>
+  <code-block label="Nuxt 2.9+" active>
+
+```json{}[tsconfig.json]
+{
+  "compilerOptions": {
+    "types": ["@nuxt/types", "nuxt-graphql-request"]
+  }
+}
+```
+
+  </code-block>
+  <code-block label="Nuxt < 2.9">
+
+```json{}[tsconfig.json]
+{
+  "compilerOptions": {
+    "types": ["@nuxt/vue-app", "nuxt-graphql-request"]
+  }
+}
+```
+
+  </code-block>
+
+</code-group>

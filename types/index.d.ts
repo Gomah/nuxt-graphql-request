@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import './vuex';
 import type { GraphQLClient } from 'graphql-request';
+export type { GraphQLClient };
 
 declare module '@nuxt/vue-app' {
   interface Context {
@@ -10,7 +11,7 @@ declare module '@nuxt/vue-app' {
   }
 
   interface NuxtAppOptions {
-   $graphql: {
+    $graphql: {
       [client: string]: GraphQLClient;
     };
   }
@@ -19,21 +20,35 @@ declare module '@nuxt/vue-app' {
 // Nuxt 2.9+
 declare module '@nuxt/types' {
   interface Context {
-   $graphql: {
+    $graphql: {
       [client: string]: GraphQLClient;
     };
   }
 
   interface NuxtAppOptions {
-   $graphql: {
+    $graphql: {
       [client: string]: GraphQLClient;
+    };
+  }
+
+  interface Configuration {
+    graphql?: {
+      clients: {
+        [key: string]: {
+          endpoint: string;
+          options?: GraphQLClient['options'];
+        };
+      };
+      options: GraphQLClient['options'];
+      includeNodeModules?: boolean;
+      useFetchPolyfill?: boolean;
     };
   }
 }
 
 declare module 'vue/types/vue' {
   interface Vue {
-   $graphql: {
+    $graphql: {
       [client: string]: GraphQLClient;
     };
   }
@@ -41,7 +56,7 @@ declare module 'vue/types/vue' {
 
 declare module 'vuex' {
   interface Store<S> {
-   $graphql: {
+    $graphql: {
       [client: string]: GraphQLClient;
     };
   }
