@@ -39,21 +39,21 @@
   },
   "dependencies": {
     "cross-fetch": "^3.1.4",
-    "graphql-request": "^3.4.0"
+    "graphql-request": "^3.5.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^12.1.4",
-    "@commitlint/config-conventional": "^12.1.4",
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
     "@nuxt/types": "^2.15.7",
-    "@types/jest": "^26.0.20",
+    "@types/jest": "^26.0.24",
     "@types/jsdom": "^16.2.13",
-    "@types/node": "^16.3.0",
+    "@types/node": "^16.4.4",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^27.0.6",
-    "eslint": "^7.30.0",
+    "eslint": "^7.31.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
-    "eslint-plugin-vue": "^7.6.0",
+    "eslint-plugin-vue": "^7.14.0",
     "graphql": "^15.5.1",
     "graphql-tag": "^2.12.5",
     "husky": "^4.3.8",
@@ -63,6 +63,6 @@
     "prettier": "^2.3.2",
     "request": "^2.88.2",
     "request-promise-native": "^1.0.9",
-    "standard-version": "^9.3.0"
+    "standard-version": "^9.3.1"
   }
 }
