@@ -1,0 +1,480 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nuxt GraphQL Request SSR 1`] = `
+"<!doctype html>
+<html data-n-head-ssr>
+  <head >
+    <title>Countries + Movies</title><link rel=\\"preload\\" href=\\"/_nuxt/8377092.js\\" as=\\"script\\"><link rel=\\"preload\\" href=\\"/_nuxt/2c4d720.js\\" as=\\"script\\"><link rel=\\"preload\\" href=\\"/_nuxt/730bcc3.js\\" as=\\"script\\"><link rel=\\"preload\\" href=\\"/_nuxt/016a52b.js\\" as=\\"script\\"><link rel=\\"preload\\" href=\\"/_nuxt/0e41152.js\\" as=\\"script\\"><style data-vue-ssr-id=\\"3191d5ad:0\\">.nuxt-progress{position:fixed;top:0;left:0;right:0;height:2px;width:0;opacity:1;transition:width .1s,opacity .4s;background-color:#000;z-index:999999}.nuxt-progress.nuxt-progress-notransition{transition:none}.nuxt-progress-failed{background-color:red}</style>
+  </head>
+  <body >
+    <div data-server-rendered=\\"true\\" id=\\"__nuxt\\"><!----><div id=\\"__layout\\"><div><h2>Countries</h2> <ul><li>
+      Andorra
+    </li><li>
+      Austria
+    </li><li>
+      Åland
+    </li><li>
+      Belgium
+    </li><li>
+      Saint Barthélemy
+    </li><li>
+      Cyprus
+    </li><li>
+      Germany
+    </li><li>
+      Estonia
+    </li><li>
+      Spain
+    </li><li>
+      Finland
+    </li><li>
+      France
+    </li><li>
+      French Guiana
+    </li><li>
+      Guadeloupe
+    </li><li>
+      Greece
+    </li><li>
+      Ireland
+    </li><li>
+      Italy
+    </li><li>
+      Lithuania
+    </li><li>
+      Luxembourg
+    </li><li>
+      Latvia
+    </li><li>
+      Monaco
+    </li><li>
+      Montenegro
+    </li><li>
+      Saint Martin
+    </li><li>
+      Martinique
+    </li><li>
+      Malta
+    </li><li>
+      Netherlands
+    </li><li>
+      Saint Pierre and Miquelon
+    </li><li>
+      Portugal
+    </li><li>
+      Réunion
+    </li><li>
+      Slovenia
+    </li><li>
+      Slovakia
+    </li><li>
+      San Marino
+    </li><li>
+      French Southern Territories
+    </li><li>
+      Vatican City
+    </li><li>
+      Kosovo
+    </li><li>
+      Mayotte
+    </li></ul> <h2>Star wars movies</h2> <ul><li>
+      A New Hope
+    </li><li>
+      The Empire Strikes Back
+    </li><li>
+      Return of the Jedi
+    </li><li>
+      The Phantom Menace
+    </li><li>
+      Attack of the Clones
+    </li><li>
+      Revenge of the Sith
+    </li></ul></div></div></div><script>window.__NUXT__=(function(a,b){return {layout:\\"default\\",data:[{countries:[{name:\\"Andorra\\"},{name:\\"Austria\\"},{name:\\"Åland\\"},{name:\\"Belgium\\"},{name:\\"Saint Barthélemy\\"},{name:\\"Cyprus\\"},{name:\\"Germany\\"},{name:\\"Estonia\\"},{name:\\"Spain\\"},{name:\\"Finland\\"},{name:\\"France\\"},{name:\\"French Guiana\\"},{name:\\"Guadeloupe\\"},{name:\\"Greece\\"},{name:\\"Ireland\\"},{name:\\"Italy\\"},{name:\\"Lithuania\\"},{name:\\"Luxembourg\\"},{name:\\"Latvia\\"},{name:\\"Monaco\\"},{name:\\"Montenegro\\"},{name:\\"Saint Martin\\"},{name:\\"Martinique\\"},{name:\\"Malta\\"},{name:\\"Netherlands\\"},{name:\\"Saint Pierre and Miquelon\\"},{name:\\"Portugal\\"},{name:\\"Réunion\\"},{name:\\"Slovenia\\"},{name:\\"Slovakia\\"},{name:\\"San Marino\\"},{name:\\"French Southern Territories\\"},{name:\\"Vatican City\\"},{name:\\"Kosovo\\"},{name:\\"Mayotte\\"}],movies:[{title:\\"A New Hope\\"},{title:\\"The Empire Strikes Back\\"},{title:\\"Return of the Jedi\\"},{title:\\"The Phantom Menace\\"},{title:\\"Attack of the Clones\\"},{title:\\"Revenge of the Sith\\"}]}],fetch:{},error:a,serverRendered:true,routePath:b,config:{_app:{basePath:b,assetsPath:\\"\\\\u002F_nuxt\\\\u002F\\",cdnURL:a}}}}(null,\\"\\\\u002F\\"));</script><script src=\\"/_nuxt/8377092.js\\" defer></script><script src=\\"/_nuxt/0e41152.js\\" defer></script><script src=\\"/_nuxt/2c4d720.js\\" defer></script><script src=\\"/_nuxt/730bcc3.js\\" defer></script><script src=\\"/_nuxt/016a52b.js\\" defer></script>
+  </body>
+</html>
+"
+`;
+
+exports[`Uses runtime config SSR 1`] = `
+"<!doctype html>
+<html data-n-head-ssr>
+  <head >
+    <title>Countries + Movies</title><link rel=\\"preload\\" href=\\"/_nuxt/8377092.js\\" as=\\"script\\"><link rel=\\"preload\\" href=\\"/_nuxt/2c4d720.js\\" as=\\"script\\"><link rel=\\"preload\\" href=\\"/_nuxt/730bcc3.js\\" as=\\"script\\"><link rel=\\"preload\\" href=\\"/_nuxt/016a52b.js\\" as=\\"script\\"><link rel=\\"preload\\" href=\\"/_nuxt/0e41152.js\\" as=\\"script\\"><style data-vue-ssr-id=\\"3191d5ad:0\\">.nuxt-progress{position:fixed;top:0;left:0;right:0;height:2px;width:0;opacity:1;transition:width .1s,opacity .4s;background-color:#000;z-index:999999}.nuxt-progress.nuxt-progress-notransition{transition:none}.nuxt-progress-failed{background-color:red}</style>
+  </head>
+  <body >
+    <div data-server-rendered=\\"true\\" id=\\"__nuxt\\"><!----><div id=\\"__layout\\"><div><h2>Countries</h2> <ul><li>
+      Andorra
+    </li><li>
+      Austria
+    </li><li>
+      Åland
+    </li><li>
+      Belgium
+    </li><li>
+      Saint Barthélemy
+    </li><li>
+      Cyprus
+    </li><li>
+      Germany
+    </li><li>
+      Estonia
+    </li><li>
+      Spain
+    </li><li>
+      Finland
+    </li><li>
+      France
+    </li><li>
+      French Guiana
+    </li><li>
+      Guadeloupe
+    </li><li>
+      Greece
+    </li><li>
+      Ireland
+    </li><li>
+      Italy
+    </li><li>
+      Lithuania
+    </li><li>
+      Luxembourg
+    </li><li>
+      Latvia
+    </li><li>
+      Monaco
+    </li><li>
+      Montenegro
+    </li><li>
+      Saint Martin
+    </li><li>
+      Martinique
+    </li><li>
+      Malta
+    </li><li>
+      Netherlands
+    </li><li>
+      Saint Pierre and Miquelon
+    </li><li>
+      Portugal
+    </li><li>
+      Réunion
+    </li><li>
+      Slovenia
+    </li><li>
+      Slovakia
+    </li><li>
+      San Marino
+    </li><li>
+      French Southern Territories
+    </li><li>
+      Vatican City
+    </li><li>
+      Kosovo
+    </li><li>
+      Mayotte
+    </li></ul> <h2>Star wars movies</h2> <ul><li>
+      A New Hope
+    </li><li>
+      The Empire Strikes Back
+    </li><li>
+      Return of the Jedi
+    </li><li>
+      The Phantom Menace
+    </li><li>
+      Attack of the Clones
+    </li><li>
+      Revenge of the Sith
+    </li></ul></div></div></div><script>window.__NUXT__=(function(a,b){return {layout:\\"default\\",data:[{countries:[{name:\\"Andorra\\"},{name:\\"Austria\\"},{name:\\"Åland\\"},{name:\\"Belgium\\"},{name:\\"Saint Barthélemy\\"},{name:\\"Cyprus\\"},{name:\\"Germany\\"},{name:\\"Estonia\\"},{name:\\"Spain\\"},{name:\\"Finland\\"},{name:\\"France\\"},{name:\\"French Guiana\\"},{name:\\"Guadeloupe\\"},{name:\\"Greece\\"},{name:\\"Ireland\\"},{name:\\"Italy\\"},{name:\\"Lithuania\\"},{name:\\"Luxembourg\\"},{name:\\"Latvia\\"},{name:\\"Monaco\\"},{name:\\"Montenegro\\"},{name:\\"Saint Martin\\"},{name:\\"Martinique\\"},{name:\\"Malta\\"},{name:\\"Netherlands\\"},{name:\\"Saint Pierre and Miquelon\\"},{name:\\"Portugal\\"},{name:\\"Réunion\\"},{name:\\"Slovenia\\"},{name:\\"Slovakia\\"},{name:\\"San Marino\\"},{name:\\"French Southern Territories\\"},{name:\\"Vatican City\\"},{name:\\"Kosovo\\"},{name:\\"Mayotte\\"}],movies:[{title:\\"A New Hope\\"},{title:\\"The Empire Strikes Back\\"},{title:\\"Return of the Jedi\\"},{title:\\"The Phantom Menace\\"},{title:\\"Attack of the Clones\\"},{title:\\"Revenge of the Sith\\"}]}],fetch:{},error:a,serverRendered:true,routePath:b,config:{graphql:{clients:{countries:{endpoint:\\"https:\\\\u002F\\\\u002Fcountries.trevorblades.com\\\\u002F\\"},starWars:{endpoint:\\"https:\\\\u002F\\\\u002Fswapi-graphql.netlify.app\\\\u002F.netlify\\\\u002Ffunctions\\\\u002Findex\\"}}},_app:{basePath:b,assetsPath:\\"\\\\u002F_nuxt\\\\u002F\\",cdnURL:a}}}}(null,\\"\\\\u002F\\"));</script><script src=\\"/_nuxt/8377092.js\\" defer></script><script src=\\"/_nuxt/0e41152.js\\" defer></script><script src=\\"/_nuxt/2c4d720.js\\" defer></script><script src=\\"/_nuxt/730bcc3.js\\" defer></script><script src=\\"/_nuxt/016a52b.js\\" defer></script>
+  </body>
+</html>
+"
+`;
+
+exports[`Using batch queries SSR 1`] = `
+"<!doctype html>
+<html data-n-head-ssr>
+  <head >
+    <title>Batch / Countries</title><link rel=\\"preload\\" href=\\"/_nuxt/8377092.js\\" as=\\"script\\"><link rel=\\"preload\\" href=\\"/_nuxt/2c4d720.js\\" as=\\"script\\"><link rel=\\"preload\\" href=\\"/_nuxt/730bcc3.js\\" as=\\"script\\"><link rel=\\"preload\\" href=\\"/_nuxt/016a52b.js\\" as=\\"script\\"><link rel=\\"preload\\" href=\\"/_nuxt/e563cea.js\\" as=\\"script\\"><style data-vue-ssr-id=\\"3191d5ad:0\\">.nuxt-progress{position:fixed;top:0;left:0;right:0;height:2px;width:0;opacity:1;transition:width .1s,opacity .4s;background-color:#000;z-index:999999}.nuxt-progress.nuxt-progress-notransition{transition:none}.nuxt-progress-failed{background-color:red}</style>
+  </head>
+  <body >
+    <div data-server-rendered=\\"true\\" id=\\"__nuxt\\"><!----><div id=\\"__layout\\"><div><h2>Countries using EUR</h2> <ul><li>
+      Andorra
+    </li><li>
+      Austria
+    </li><li>
+      Åland
+    </li><li>
+      Belgium
+    </li><li>
+      Saint Barthélemy
+    </li><li>
+      Cyprus
+    </li><li>
+      Germany
+    </li><li>
+      Estonia
+    </li><li>
+      Spain
+    </li><li>
+      Finland
+    </li><li>
+      France
+    </li><li>
+      French Guiana
+    </li><li>
+      Guadeloupe
+    </li><li>
+      Greece
+    </li><li>
+      Ireland
+    </li><li>
+      Italy
+    </li><li>
+      Lithuania
+    </li><li>
+      Luxembourg
+    </li><li>
+      Latvia
+    </li><li>
+      Monaco
+    </li><li>
+      Montenegro
+    </li><li>
+      Saint Martin
+    </li><li>
+      Martinique
+    </li><li>
+      Malta
+    </li><li>
+      Netherlands
+    </li><li>
+      Saint Pierre and Miquelon
+    </li><li>
+      Portugal
+    </li><li>
+      Réunion
+    </li><li>
+      Slovenia
+    </li><li>
+      Slovakia
+    </li><li>
+      San Marino
+    </li><li>
+      French Southern Territories
+    </li><li>
+      Vatican City
+    </li><li>
+      Kosovo
+    </li><li>
+      Mayotte
+    </li></ul> <h2>Countries using AUD</h2> <ul><li>
+      Australia
+    </li><li>
+      Cocos [Keeling] Islands
+    </li><li>
+      Christmas Island
+    </li><li>
+      Heard Island and McDonald Islands
+    </li><li>
+      Kiribati
+    </li><li>
+      Norfolk Island
+    </li><li>
+      Nauru
+    </li><li>
+      Tuvalu
+    </li></ul></div></div></div><script>window.__NUXT__=(function(a){return {layout:\\"default\\",data:[{eur:[{name:\\"Andorra\\"},{name:\\"Austria\\"},{name:\\"Åland\\"},{name:\\"Belgium\\"},{name:\\"Saint Barthélemy\\"},{name:\\"Cyprus\\"},{name:\\"Germany\\"},{name:\\"Estonia\\"},{name:\\"Spain\\"},{name:\\"Finland\\"},{name:\\"France\\"},{name:\\"French Guiana\\"},{name:\\"Guadeloupe\\"},{name:\\"Greece\\"},{name:\\"Ireland\\"},{name:\\"Italy\\"},{name:\\"Lithuania\\"},{name:\\"Luxembourg\\"},{name:\\"Latvia\\"},{name:\\"Monaco\\"},{name:\\"Montenegro\\"},{name:\\"Saint Martin\\"},{name:\\"Martinique\\"},{name:\\"Malta\\"},{name:\\"Netherlands\\"},{name:\\"Saint Pierre and Miquelon\\"},{name:\\"Portugal\\"},{name:\\"Réunion\\"},{name:\\"Slovenia\\"},{name:\\"Slovakia\\"},{name:\\"San Marino\\"},{name:\\"French Southern Territories\\"},{name:\\"Vatican City\\"},{name:\\"Kosovo\\"},{name:\\"Mayotte\\"}],aud:[{name:\\"Australia\\"},{name:\\"Cocos [Keeling] Islands\\"},{name:\\"Christmas Island\\"},{name:\\"Heard Island and McDonald Islands\\"},{name:\\"Kiribati\\"},{name:\\"Norfolk Island\\"},{name:\\"Nauru\\"},{name:\\"Tuvalu\\"}]}],fetch:{},error:a,serverRendered:true,routePath:\\"\\\\u002Fbatch\\",config:{_app:{basePath:\\"\\\\u002F\\",assetsPath:\\"\\\\u002F_nuxt\\\\u002F\\",cdnURL:a}}}}(null));</script><script src=\\"/_nuxt/8377092.js\\" defer></script><script src=\\"/_nuxt/e563cea.js\\" defer></script><script src=\\"/_nuxt/2c4d720.js\\" defer></script><script src=\\"/_nuxt/730bcc3.js\\" defer></script><script src=\\"/_nuxt/016a52b.js\\" defer></script>
+  </body>
+</html>
+"
+`;
+
+exports[`With .gql Import SSR 1`] = `
+"<!doctype html>
+<html data-n-head-ssr>
+  <head >
+    <title>Countries + Movies</title><link rel=\\"preload\\" href=\\"/_nuxt/8377092.js\\" as=\\"script\\"><link rel=\\"preload\\" href=\\"/_nuxt/2c4d720.js\\" as=\\"script\\"><link rel=\\"preload\\" href=\\"/_nuxt/730bcc3.js\\" as=\\"script\\"><link rel=\\"preload\\" href=\\"/_nuxt/016a52b.js\\" as=\\"script\\"><link rel=\\"preload\\" href=\\"/_nuxt/fa48d6b.js\\" as=\\"script\\"><style data-vue-ssr-id=\\"3191d5ad:0\\">.nuxt-progress{position:fixed;top:0;left:0;right:0;height:2px;width:0;opacity:1;transition:width .1s,opacity .4s;background-color:#000;z-index:999999}.nuxt-progress.nuxt-progress-notransition{transition:none}.nuxt-progress-failed{background-color:red}</style>
+  </head>
+  <body >
+    <div data-server-rendered=\\"true\\" id=\\"__nuxt\\"><!----><div id=\\"__layout\\"><div><h2>Countries</h2> <ul><li>
+      Andorra
+    </li><li>
+      Austria
+    </li><li>
+      Åland
+    </li><li>
+      Belgium
+    </li><li>
+      Saint Barthélemy
+    </li><li>
+      Cyprus
+    </li><li>
+      Germany
+    </li><li>
+      Estonia
+    </li><li>
+      Spain
+    </li><li>
+      Finland
+    </li><li>
+      France
+    </li><li>
+      French Guiana
+    </li><li>
+      Guadeloupe
+    </li><li>
+      Greece
+    </li><li>
+      Ireland
+    </li><li>
+      Italy
+    </li><li>
+      Lithuania
+    </li><li>
+      Luxembourg
+    </li><li>
+      Latvia
+    </li><li>
+      Monaco
+    </li><li>
+      Montenegro
+    </li><li>
+      Saint Martin
+    </li><li>
+      Martinique
+    </li><li>
+      Malta
+    </li><li>
+      Netherlands
+    </li><li>
+      Saint Pierre and Miquelon
+    </li><li>
+      Portugal
+    </li><li>
+      Réunion
+    </li><li>
+      Slovenia
+    </li><li>
+      Slovakia
+    </li><li>
+      San Marino
+    </li><li>
+      French Southern Territories
+    </li><li>
+      Vatican City
+    </li><li>
+      Kosovo
+    </li><li>
+      Mayotte
+    </li></ul> <h2>Star wars movies</h2> <ul><li>
+      A New Hope
+    </li><li>
+      The Empire Strikes Back
+    </li><li>
+      Return of the Jedi
+    </li><li>
+      The Phantom Menace
+    </li><li>
+      Attack of the Clones
+    </li><li>
+      Revenge of the Sith
+    </li></ul></div></div></div><script>window.__NUXT__=(function(a,b){return {layout:\\"default\\",data:[{countries:[{code:\\"AD\\",name:\\"Andorra\\",currency:a},{code:\\"AT\\",name:\\"Austria\\",currency:a},{code:\\"AX\\",name:\\"Åland\\",currency:a},{code:\\"BE\\",name:\\"Belgium\\",currency:a},{code:\\"BL\\",name:\\"Saint Barthélemy\\",currency:a},{code:\\"CY\\",name:\\"Cyprus\\",currency:a},{code:\\"DE\\",name:\\"Germany\\",currency:a},{code:\\"EE\\",name:\\"Estonia\\",currency:a},{code:\\"ES\\",name:\\"Spain\\",currency:a},{code:\\"FI\\",name:\\"Finland\\",currency:a},{code:\\"FR\\",name:\\"France\\",currency:a},{code:\\"GF\\",name:\\"French Guiana\\",currency:a},{code:\\"GP\\",name:\\"Guadeloupe\\",currency:a},{code:\\"GR\\",name:\\"Greece\\",currency:a},{code:\\"IE\\",name:\\"Ireland\\",currency:a},{code:\\"IT\\",name:\\"Italy\\",currency:a},{code:\\"LT\\",name:\\"Lithuania\\",currency:a},{code:\\"LU\\",name:\\"Luxembourg\\",currency:a},{code:\\"LV\\",name:\\"Latvia\\",currency:a},{code:\\"MC\\",name:\\"Monaco\\",currency:a},{code:\\"ME\\",name:\\"Montenegro\\",currency:a},{code:\\"MF\\",name:\\"Saint Martin\\",currency:a},{code:\\"MQ\\",name:\\"Martinique\\",currency:a},{code:\\"MT\\",name:\\"Malta\\",currency:a},{code:\\"NL\\",name:\\"Netherlands\\",currency:a},{code:\\"PM\\",name:\\"Saint Pierre and Miquelon\\",currency:a},{code:\\"PT\\",name:\\"Portugal\\",currency:a},{code:\\"RE\\",name:\\"Réunion\\",currency:a},{code:\\"SI\\",name:\\"Slovenia\\",currency:a},{code:\\"SK\\",name:\\"Slovakia\\",currency:a},{code:\\"SM\\",name:\\"San Marino\\",currency:a},{code:\\"TF\\",name:\\"French Southern Territories\\",currency:a},{code:\\"VA\\",name:\\"Vatican City\\",currency:a},{code:\\"XK\\",name:\\"Kosovo\\",currency:a},{code:\\"YT\\",name:\\"Mayotte\\",currency:a}],movies:[{title:\\"A New Hope\\"},{title:\\"The Empire Strikes Back\\"},{title:\\"Return of the Jedi\\"},{title:\\"The Phantom Menace\\"},{title:\\"Attack of the Clones\\"},{title:\\"Revenge of the Sith\\"}]}],fetch:{},error:b,serverRendered:true,routePath:\\"\\\\u002Fimport\\",config:{_app:{basePath:\\"\\\\u002F\\",assetsPath:\\"\\\\u002F_nuxt\\\\u002F\\",cdnURL:b}}}}(\\"EUR\\",null));</script><script src=\\"/_nuxt/8377092.js\\" defer></script><script src=\\"/_nuxt/fa48d6b.js\\" defer></script><script src=\\"/_nuxt/2c4d720.js\\" defer></script><script src=\\"/_nuxt/730bcc3.js\\" defer></script><script src=\\"/_nuxt/016a52b.js\\" defer></script>
+  </body>
+</html>
+"
+`;
+
+exports[`With AST SSR 1`] = `
+"<!doctype html>
+<html data-n-head-ssr>
+  <head >
+    <title>Countries + Movies</title><link rel=\\"preload\\" href=\\"/_nuxt/8377092.js\\" as=\\"script\\"><link rel=\\"preload\\" href=\\"/_nuxt/2c4d720.js\\" as=\\"script\\"><link rel=\\"preload\\" href=\\"/_nuxt/730bcc3.js\\" as=\\"script\\"><link rel=\\"preload\\" href=\\"/_nuxt/016a52b.js\\" as=\\"script\\"><link rel=\\"preload\\" href=\\"/_nuxt/42dc45b.js\\" as=\\"script\\"><style data-vue-ssr-id=\\"3191d5ad:0\\">.nuxt-progress{position:fixed;top:0;left:0;right:0;height:2px;width:0;opacity:1;transition:width .1s,opacity .4s;background-color:#000;z-index:999999}.nuxt-progress.nuxt-progress-notransition{transition:none}.nuxt-progress-failed{background-color:red}</style>
+  </head>
+  <body >
+    <div data-server-rendered=\\"true\\" id=\\"__nuxt\\"><!----><div id=\\"__layout\\"><div><h2>Countries</h2> <ul><li>
+      Andorra
+    </li><li>
+      Austria
+    </li><li>
+      Åland
+    </li><li>
+      Belgium
+    </li><li>
+      Saint Barthélemy
+    </li><li>
+      Cyprus
+    </li><li>
+      Germany
+    </li><li>
+      Estonia
+    </li><li>
+      Spain
+    </li><li>
+      Finland
+    </li><li>
+      France
+    </li><li>
+      French Guiana
+    </li><li>
+      Guadeloupe
+    </li><li>
+      Greece
+    </li><li>
+      Ireland
+    </li><li>
+      Italy
+    </li><li>
+      Lithuania
+    </li><li>
+      Luxembourg
+    </li><li>
+      Latvia
+    </li><li>
+      Monaco
+    </li><li>
+      Montenegro
+    </li><li>
+      Saint Martin
+    </li><li>
+      Martinique
+    </li><li>
+      Malta
+    </li><li>
+      Netherlands
+    </li><li>
+      Saint Pierre and Miquelon
+    </li><li>
+      Portugal
+    </li><li>
+      Réunion
+    </li><li>
+      Slovenia
+    </li><li>
+      Slovakia
+    </li><li>
+      San Marino
+    </li><li>
+      French Southern Territories
+    </li><li>
+      Vatican City
+    </li><li>
+      Kosovo
+    </li><li>
+      Mayotte
+    </li></ul> <h2>Star wars movies</h2> <ul><li>
+      A New Hope
+    </li><li>
+      The Empire Strikes Back
+    </li><li>
+      Return of the Jedi
+    </li><li>
+      The Phantom Menace
+    </li><li>
+      Attack of the Clones
+    </li><li>
+      Revenge of the Sith
+    </li></ul></div></div></div><script>window.__NUXT__=(function(a,b){return {layout:\\"default\\",data:[{countries:[{code:\\"AD\\",name:\\"Andorra\\",currency:a},{code:\\"AT\\",name:\\"Austria\\",currency:a},{code:\\"AX\\",name:\\"Åland\\",currency:a},{code:\\"BE\\",name:\\"Belgium\\",currency:a},{code:\\"BL\\",name:\\"Saint Barthélemy\\",currency:a},{code:\\"CY\\",name:\\"Cyprus\\",currency:a},{code:\\"DE\\",name:\\"Germany\\",currency:a},{code:\\"EE\\",name:\\"Estonia\\",currency:a},{code:\\"ES\\",name:\\"Spain\\",currency:a},{code:\\"FI\\",name:\\"Finland\\",currency:a},{code:\\"FR\\",name:\\"France\\",currency:a},{code:\\"GF\\",name:\\"French Guiana\\",currency:a},{code:\\"GP\\",name:\\"Guadeloupe\\",currency:a},{code:\\"GR\\",name:\\"Greece\\",currency:a},{code:\\"IE\\",name:\\"Ireland\\",currency:a},{code:\\"IT\\",name:\\"Italy\\",currency:a},{code:\\"LT\\",name:\\"Lithuania\\",currency:a},{code:\\"LU\\",name:\\"Luxembourg\\",currency:a},{code:\\"LV\\",name:\\"Latvia\\",currency:a},{code:\\"MC\\",name:\\"Monaco\\",currency:a},{code:\\"ME\\",name:\\"Montenegro\\",currency:a},{code:\\"MF\\",name:\\"Saint Martin\\",currency:a},{code:\\"MQ\\",name:\\"Martinique\\",currency:a},{code:\\"MT\\",name:\\"Malta\\",currency:a},{code:\\"NL\\",name:\\"Netherlands\\",currency:a},{code:\\"PM\\",name:\\"Saint Pierre and Miquelon\\",currency:a},{code:\\"PT\\",name:\\"Portugal\\",currency:a},{code:\\"RE\\",name:\\"Réunion\\",currency:a},{code:\\"SI\\",name:\\"Slovenia\\",currency:a},{code:\\"SK\\",name:\\"Slovakia\\",currency:a},{code:\\"SM\\",name:\\"San Marino\\",currency:a},{code:\\"TF\\",name:\\"French Southern Territories\\",currency:a},{code:\\"VA\\",name:\\"Vatican City\\",currency:a},{code:\\"XK\\",name:\\"Kosovo\\",currency:a},{code:\\"YT\\",name:\\"Mayotte\\",currency:a}],movies:[{title:\\"A New Hope\\"},{title:\\"The Empire Strikes Back\\"},{title:\\"Return of the Jedi\\"},{title:\\"The Phantom Menace\\"},{title:\\"Attack of the Clones\\"},{title:\\"Revenge of the Sith\\"}]}],fetch:{},error:b,serverRendered:true,routePath:\\"\\\\u002Fwith-ast\\",config:{_app:{basePath:\\"\\\\u002F\\",assetsPath:\\"\\\\u002F_nuxt\\\\u002F\\",cdnURL:b}}}}(\\"EUR\\",null));</script><script src=\\"/_nuxt/8377092.js\\" defer></script><script src=\\"/_nuxt/42dc45b.js\\" defer></script><script src=\\"/_nuxt/2c4d720.js\\" defer></script><script src=\\"/_nuxt/730bcc3.js\\" defer></script><script src=\\"/_nuxt/016a52b.js\\" defer></script>
+  </body>
+</html>
+"
+`;

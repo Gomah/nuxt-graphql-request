@@ -40,8 +40,7 @@ describe('Nuxt GraphQL Request', () => {
 
   test('SSR', async () => {
     const html = await get('/');
-    expect(html).toContain('Belgium');
-    expect(html).toContain('A New Hope');
+    expect(html).toMatchSnapshot();
   });
 
   test('CSR', async () => {
@@ -49,8 +48,7 @@ describe('Nuxt GraphQL Request', () => {
 
     window.onNuxtReady(() => {
       const html = window.document.body.innerHTML;
-      expect(html).toContain('Belgium');
-      expect(html).toContain('A New Hope');
+      expect(html).toMatchSnapshot();
     });
   });
 });
@@ -66,8 +64,7 @@ describe('With AST', () => {
 
   test('SSR', async () => {
     const html = await get('/with-ast');
-    expect(html).toContain('Belgium');
-    expect(html).toContain('A New Hope');
+    expect(html).toMatchSnapshot();
   });
 
   test('CSR', async () => {
@@ -75,8 +72,31 @@ describe('With AST', () => {
 
     window.onNuxtReady(() => {
       const html = window.document.body.innerHTML;
-      expect(html).toContain('Belgium');
-      expect(html).toContain('A New Hope');
+      expect(html).toMatchSnapshot();
+    });
+  });
+});
+
+describe('Using batch queries', () => {
+  beforeAll(async () => {
+    await setupNuxt(config);
+  });
+
+  afterAll(async () => {
+    await nuxt.close();
+  });
+
+  test('SSR', async () => {
+    const html = await get('/batch');
+    expect(html).toMatchSnapshot();
+  });
+
+  test('CSR', async () => {
+    const window = await nuxt.renderAndGetWindow(url('/batch'));
+
+    window.onNuxtReady(() => {
+      const html = window.document.body.innerHTML;
+      expect(html).toMatchSnapshot();
     });
   });
 });
@@ -92,8 +112,7 @@ describe('With .gql Import', () => {
 
   test('SSR', async () => {
     const html = await get('/import');
-    expect(html).toContain('Belgium');
-    expect(html).toContain('A New Hope');
+    expect(html).toMatchSnapshot();
   });
 
   test('CSR', async () => {
@@ -101,8 +120,7 @@ describe('With .gql Import', () => {
 
     window.onNuxtReady(() => {
       const html = window.document.body.innerHTML;
-      expect(html).toContain('Belgium');
-      expect(html).toContain('A New Hope');
+      expect(html).toMatchSnapshot();
     });
   });
 });
@@ -137,8 +155,7 @@ describe('Uses runtime config', () => {
 
   test('SSR', async () => {
     const html = await get('/');
-    expect(html).toContain('Belgium');
-    expect(html).toContain('A New Hope');
+    expect(html).toMatchSnapshot();
   });
 
   test('CSR', async () => {
@@ -146,8 +163,7 @@ describe('Uses runtime config', () => {
 
     window.onNuxtReady(() => {
       const html = window.document.body.innerHTML;
-      expect(html).toContain('Belgium');
-      expect(html).toContain('A New Hope');
+      expect(html).toMatchSnapshot();
     });
   });
 });
