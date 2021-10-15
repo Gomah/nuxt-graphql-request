@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.2.1](https://github.com/Gomah/nuxt-graphql-request/compare/v4.2.0...v4.2.1) (2021-10-15)
+
+
+### Bug Fixes
+
+* mergeDeepRight client options ([0778d96](https://github.com/Gomah/nuxt-graphql-request/commit/0778d96767431ed8c201bf99f1f84528a466339c))
+
 ## [4.2.0](https://github.com/Gomah/nuxt-graphql-request/compare/v4.1.0...v4.2.0) (2021-10-14)
 
 
