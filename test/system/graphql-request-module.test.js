@@ -4,6 +4,7 @@ const { Nuxt, Builder } = require('nuxt');
 
 const url = (path) => `http://localhost:3000${path}`;
 const get = (path) => request(url(path));
+const bodyRegex = /<body[^>]*>((.|[\n\r])*)<\/body>/im;
 
 let nuxt;
 let addTemplate;
@@ -40,7 +41,10 @@ describe('Nuxt GraphQL Request', () => {
 
   test('SSR', async () => {
     const html = await get('/');
-    expect(html).toMatchSnapshot();
+
+    const [body] = bodyRegex.exec(html);
+
+    expect(body).toMatchSnapshot();
   });
 
   test('CSR', async () => {
@@ -64,7 +68,10 @@ describe('With AST', () => {
 
   test('SSR', async () => {
     const html = await get('/with-ast');
-    expect(html).toMatchSnapshot();
+
+    const [body] = bodyRegex.exec(html);
+
+    expect(body).toMatchSnapshot();
   });
 
   test('CSR', async () => {
@@ -88,7 +95,10 @@ describe('Using batch queries', () => {
 
   test('SSR', async () => {
     const html = await get('/batch');
-    expect(html).toMatchSnapshot();
+
+    const [body] = bodyRegex.exec(html);
+
+    expect(body).toMatchSnapshot();
   });
 
   test('CSR', async () => {
@@ -112,7 +122,10 @@ describe('With .gql Import', () => {
 
   test('SSR', async () => {
     const html = await get('/import');
-    expect(html).toMatchSnapshot();
+
+    const [body] = bodyRegex.exec(html);
+
+    expect(body).toMatchSnapshot();
   });
 
   test('CSR', async () => {
@@ -155,7 +168,10 @@ describe('Uses runtime config', () => {
 
   test('SSR', async () => {
     const html = await get('/');
-    expect(html).toMatchSnapshot();
+
+    const [body] = bodyRegex.exec(html);
+
+    expect(body).toMatchSnapshot();
   });
 
   test('CSR', async () => {
