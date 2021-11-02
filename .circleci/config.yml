@@ -6,6 +6,7 @@ jobs:
     steps:
       - checkout
       - run: yarn
+      - run: yarn nuxt generate test/fixture
       - run: yarn test
 
 workflows:
