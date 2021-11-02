@@ -31,7 +31,8 @@
     "dev": "nuxt test/fixture",
     "test:system": "NODE_ENV=test jest --testRegex \"/test/system/(.+)\\.test\\.ts$\"",
     "release": "yarn test && standard-version && git push --follow-tags && npm publish",
-    "test": "yarn test:lint && NODE_ENV=test jest",
+    "test": "yarn test:lint && yarn test:jest",
+    "test:jest": "NODE_ENV=test && jest --runInBand",
     "test:lint": "eslint --ext .js, lib/module.js"
   },
   "peerDependencies": {

@@ -4,7 +4,7 @@ const { Nuxt, Builder } = require('nuxt');
 
 const url = (path) => `http://localhost:3000${path}`;
 const get = (path) => request(url(path));
-const bodyRegex = /<body[^>]*>((.|[\n\r])*)<\/body>/im;
+const bodyRegex = /<div id="__layout">((.|[\n\r])*)<\/div><script>/im;
 
 let nuxt;
 let addTemplate;
@@ -26,13 +26,7 @@ jest.setTimeout(10000);
 
 describe('Nuxt GraphQL Request', () => {
   beforeAll(async () => {
-    nuxt = new Nuxt(config);
-
-    // Spy addTemplate
-    addTemplate = nuxt.moduleContainer.addTemplate = jest.fn(nuxt.moduleContainer.addTemplate);
-
-    await new Builder(nuxt).build();
-    await nuxt.listen(3000);
+    await setupNuxt(config);
   }, 60000);
 
   afterAll(async () => {
