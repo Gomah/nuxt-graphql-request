@@ -334,7 +334,7 @@ export default {
 </script>
 ```
 
-#### GraphQL Mutations
+#### Error handling
 
 ```vue
 <script>
@@ -367,7 +367,7 @@ export default {
 </script>
 ```
 
-#### Error handling
+#### GraphQL Mutations
 
 ```vue
 <script>
