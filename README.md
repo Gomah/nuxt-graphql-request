@@ -2,7 +2,7 @@
 
 # 📡 GraphQL Request Module
 
-[![circleci][circleci-src]][circleci-href]
+![ci](https://github.com/gomah/nuxt-graphql-request/actions/workflows/main.yml/badge.svg)
 [![npm version][npm-version-src]][npm-version-href]
 [![Dependencies][david-dm-src]][david-dm-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
@@ -496,8 +496,6 @@ Sure, you can perform any GraphQL queries & mutations as before 👍
 
 <!-- Badges -->
 
-[circleci-src]: https://circleci.com/gh/Gomah/nuxt-graphql-request.svg?style=shield
-[circleci-href]: https://circleci.com/gh/Gomah/nuxt-graphql-request
 [npm-version-src]: https://img.shields.io/npm/dt/nuxt-graphql-request.svg?style=flat-square
 [npm-version-href]: https://npmjs.com/package/nuxt-graphql-request
 [npm-downloads-src]: https://img.shields.io/npm/v/nuxt-graphql-request/latest.svg?style=flat-square
