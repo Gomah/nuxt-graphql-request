@@ -1,7 +1,7 @@
 ---
-title: GraphQL Mutations
+title: Error handling
 description: ''
-position: 8
+position: 9
 category: 'Examples'
 ---
 

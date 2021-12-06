@@ -2,7 +2,7 @@
 
 # 📡 GraphQL Request Module
 
-![ci](https://github.com/gomah/nuxt-graphql-request/actions/workflows/main.yml/badge.svg)
+![ci](https://github.com/gomah/nuxt-graphql-request/actions/workflows/CI/badge.svg)
 [![npm version][npm-version-src]][npm-version-href]
 [![Dependencies][david-dm-src]][david-dm-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
