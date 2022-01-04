@@ -67,7 +67,9 @@ module.exports = {
      * Options
      * See: https://github.com/prisma-labs/graphql-request#passing-more-options-to-fetch
      */
-    options: {},
+    options: {
+      method: 'get', // Default to `POST`
+    },
 
     /**
      * Optional
