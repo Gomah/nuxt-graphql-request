@@ -1,7 +1,7 @@
 ---
 title: Batch Queries
 description: ''
-position: 5
+position: 12
 category: 'Examples'
 ---
 

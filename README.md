@@ -451,6 +451,114 @@ export default {
 </script>
 ```
 
+#### Batch queries
+
+```vue
+<script>
+import { gql } from 'nuxt-graphql-request';
+
+export default {
+  methods: {
+    async fetchSomething() {
+      const query1 = /* GraphQL */ `
+        query ($id: ID!) {
+          capsule(id: $id) {
+            id
+            landings
+          }
+        }
+      `;
+
+      const variables1 = {
+        id: 'C105',
+      };
+
+      const query2 = /* GraphQL */ `
+        {
+          rockets(limit: 10) {
+            active
+          }
+        }
+      `;
+
+      const query3 = /* GraphQL */ `
+        query ($id: ID!) {
+          core(id: $id) {
+            id
+            block
+            original_launch
+          }
+        }
+      `;
+
+      const variables3 = {
+        id: 'B1015',
+      };
+
+      try {
+        const data = await this.$graphql.default.batchRequests([
+          { document: query1, variables: variables1 },
+          { document: query2 },
+          { document: query3, variables: variables3 },
+        ]);
+
+        console.log(JSON.stringify(data, undefined, 2));
+      } catch (error) {
+        console.error(JSON.stringify(error, undefined, 2));
+        process.exit(1);
+      }
+    },
+  },
+};
+</script>
+```
+
+#### Cancellation
+
+It is possible to cancel a request using an `AbortController` signal.
+
+```vue
+<script>
+import { gql } from 'nuxt-graphql-request';
+
+export default {
+  methods: {
+    async fetchSomething() {
+      const query = gql`
+        query planets {
+          allPlanets {
+            planets {
+              id
+              name
+            }
+          }
+        }
+      `;
+
+      const abortController = new AbortController();
+
+      const client = new GraphQLClient(endpoint);
+
+      const planets = await this.$graphql.default.request({
+        document: query,
+        signal: abortController.signal,
+      });
+
+      abortController.abort();
+    },
+  },
+};
+</script>
+```
+
+In Node environment, AbortController is supported since version v14.17.0. For Node.js v12 you can use [abort-controller](https://github.com/mysticatea/abort-controller) polyfill.
+
+```ts
+import 'abort-controller/polyfill';
+
+const abortController = new AbortController();
+```
+
 ## [FAQ](https://github.com/prisma-labs/graphql-request/blob/master/README.md#faq)
 
 #### Why use `nuxt-graphql-request` over `@nuxtjs/apollo`?
