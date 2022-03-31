@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.1.0](https://github.com/Gomah/nuxt-graphql-request/compare/v5.0.0...v5.1.0) (2022-03-31)
+
+
+### Features
+
+* **deps:** bump graphql-request to 4.2.0 ([0dd6e1b](https://github.com/Gomah/nuxt-graphql-request/commit/0dd6e1b318e99f0e1af4bdb2b9a4a00100d7b71b))
+
 ## [5.0.0](https://github.com/Gomah/nuxt-graphql-request/compare/v4.3.0...v5.0.0) (2022-03-07)
 
 
