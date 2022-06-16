@@ -559,6 +559,10 @@ import 'abort-controller/polyfill';
 const abortController = new AbortController();
 ```
 
+### Using standole .graphql/.gql files
+
+Standalone graphql/gql files can be used out of the box, if you have previously set up transpiling of these files in nuxt config remove it to avoid conflicts.
+
 ## [FAQ](https://github.com/prisma-labs/graphql-request/blob/master/README.md#faq)
 
 #### Why use `nuxt-graphql-request` over `@nuxtjs/apollo`?
