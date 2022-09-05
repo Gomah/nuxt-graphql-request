@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.0.1](https://github.com/Gomah/nuxt-graphql-request/compare/v6.0.0...v6.0.1) (2022-09-05)
+
+
+### Documentation
+
+* add middleware example ([2c1dd6d](https://github.com/Gomah/nuxt-graphql-request/commit/2c1dd6d89d947bf905128870ece9e4102adc2a2b))
+
 ## [6.0.0](https://github.com/Gomah/nuxt-graphql-request/compare/v5.2.0...v6.0.0) (2022-09-02)
 
 
