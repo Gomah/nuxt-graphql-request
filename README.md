@@ -224,10 +224,10 @@ If you want to set headers after the GraphQLClient has been initialised, you can
 
 ```ts
 // Set a single header
-this.$graphql.default.setHeaders({ authorization: 'Bearer MY_TOKEN' });
+this.$graphql.default.setHeader('authorization', 'Bearer MY_TOKEN');
 
 // Override all existing headers
-this.$graphql.default.setHeader('authorization', 'Bearer MY_TOKEN');
+this.$graphql.default.setHeaders({ authorization: 'Bearer MY_TOKEN' });
 ```
 
 ##### Set endpoint
