@@ -186,7 +186,7 @@ export default {
 
       const planets = await this.$graphql.default.request(query);
       commit('SET_PLANETS', planets);
-    },z
+    },
   },
 };
 ```
