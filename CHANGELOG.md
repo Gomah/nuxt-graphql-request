@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.0.3](https://github.com/Gomah/nuxt-graphql-request/compare/v6.0.2...v6.0.3) (2023-03-13)
+
+
+### Bug Fixes
+
+* **deps:** use exact dependency match ([9ebd904](https://github.com/Gomah/nuxt-graphql-request/commit/9ebd904dabd44b4332a2febe8c1f8d58c05c9348))
+
 ### [6.0.2](https://github.com/Gomah/nuxt-graphql-request/compare/v6.0.1...v6.0.2) (2023-01-24)
 
 

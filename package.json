@@ -1,6 +1,6 @@
 {
   "name": "nuxt-graphql-request",
-  "version": "6.0.2",
+  "version": "6.0.3",
   "description": "Easy GraphQL client integration with Nuxt.js",
   "author": {
     "name": "Gomah <hi@gomah.fr>"
