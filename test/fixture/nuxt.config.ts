@@ -1,9 +1,7 @@
-const resolve = require('path').resolve;
+import rollupGraphql from '@rollup/plugin-graphql';
 
-module.exports = {
-  rootDir: resolve(__dirname, '../..'),
-  srcDir: __dirname,
-  modules: ['../../lib/module'],
+export default defineNuxtConfig({
+  modules: ['../../src/module'],
   graphql: {
     clients: {
       countries: {
@@ -15,5 +13,7 @@ module.exports = {
     },
     options: {},
   },
-  dev: process.env.NODE_ENV !== 'test' && process.env.NODE_ENV === 'production',
-};
+  vite: {
+    plugins: [rollupGraphql()],
+  },
+});

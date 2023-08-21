@@ -1,5 +1,5 @@
 <template>
-  <div id="test">
+  <div>
     <h2>Countries</h2>
     <ul>
       <li v-for="country in countries" :key="country.name">
