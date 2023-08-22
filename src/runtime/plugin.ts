@@ -23,16 +23,30 @@ export default defineNuxtPlugin(async (nuxtApp) => {
     globalThis.fetch = (await import('cross-fetch')).fetch;
   }
 
-  const graphClients = {} as Record<keyof typeof baseOptions.clients, GraphQLClient>;
+  const runtimeOptions = nuxtApp.$config.public.graphql;
+  const runtimeClients: typeof runtimeOptions.clients & Partial<ModuleOptions['clients']> =
+    runtimeOptions?.clients;
 
+  const graphClients = {} as Record<keyof typeof baseOptions.clients, GraphQLClient> &
+    Record<keyof typeof runtimeClients, GraphQLClient>;
+
+  // process non-runtime clients
   for (const [clientName, clientConfig] of entries(baseOptions.clients)) {
-    const runtimeOptions = nuxtApp.$config.graphql as ModuleOptions | undefined;
-    const runtimeClientConfig = runtimeOptions?.clients?.[clientName];
+    const runtimeConfig = runtimeClients?.[clientName];
     const mergedConfig = mergeAll([
       baseOptions,
       clientConfig,
-      runtimeClientConfig ?? {},
-    ]) as typeof baseOptions & typeof clientConfig & NonNullable<typeof runtimeClientConfig>;
+      runtimeConfig ?? {},
+    ]) as typeof baseOptions & typeof clientConfig & NonNullable<typeof runtimeConfig>;
+
+    graphClients[clientName] = new GraphQLClient(mergedConfig.endpoint, mergedConfig.options);
+  }
+
+  // process clients only defined at runtime
+  for (const [clientName, clientConfig] of entries(runtimeClients)) {
+    if (clientName in graphClients) continue;
+    const mergedConfig = mergeAll([baseOptions, clientConfig ?? {}]) as typeof baseOptions &
+      typeof clientConfig;
 
     graphClients[clientName] = new GraphQLClient(mergedConfig.endpoint, mergedConfig.options);
   }

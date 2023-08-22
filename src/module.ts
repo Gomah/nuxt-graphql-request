@@ -10,14 +10,16 @@ import type { GraphQLClient } from 'graphql-request';
 
 const ALLOW_GQL_FILES = ['.graphql', '.gql'];
 
+export type ClientConfig = {
+  endpoint: string;
+  options?: GraphQLClient['requestConfig'];
+};
+
 export interface ModuleOptions {
-  clients: {
-    [key: string]: {
-      endpoint: string;
-      options?: GraphQLClient['requestConfig'];
-    };
+  clients?: {
+    [key: string]: ClientConfig;
   };
-  options: GraphQLClient['requestConfig'];
+  options?: GraphQLClient['requestConfig'];
   includeNodeModules?: boolean;
   useFetchPolyfill?: boolean;
 }
