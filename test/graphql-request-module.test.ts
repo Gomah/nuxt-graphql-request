@@ -34,4 +34,10 @@ describe('SSR', async () => {
     const $ = cheerio(html);
     expect($('div#test').html()).toMatchSnapshot();
   });
+
+  test('Runtime config', async () => {
+    const html = await $fetch('/runtime');
+    const $ = cheerio(html);
+    expect($('div#test').html()).toMatchSnapshot();
+  });
 });

@@ -138,6 +138,27 @@ exports[`SSR > Nuxt GraphQL Request 1`] = `
 </ul>
 `;
 
+exports[`SSR > Runtime config 1`] = `
+<h2>
+  Countries (mergeAtRuntime)
+</h2>
+<ul>
+  <!--[-->
+  <li>
+    Canada
+  </li>
+</ul>
+<h2>
+  Countries (runtimeOnly)
+</h2>
+<ul>
+  <!--[-->
+  <li>
+    Canada
+  </li>
+</ul>
+`;
+
 exports[`SSR > Using batch queries 1`] = `
 <h2>
   Countries using EUR
