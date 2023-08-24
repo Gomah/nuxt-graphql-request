@@ -31,7 +31,7 @@ export default {
 import { useAsyncData, useNuxtApp } from 'nuxt/app';
 import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
 import { parse } from 'graphql';
-import { gql } from 'graphql-request';
+import { gql } from '../../../src/utils';
 
 const { $graphql } = useNuxtApp();
 

@@ -21,7 +21,16 @@
       "types": "./dist/types.d.ts",
       "import": "./dist/module.mjs",
       "require": "./dist/module.cjs"
+    },
+    "./utils": {
+      "types": "./dist/utils.d.ts",
+      "import": "./dist/utils.mjs"
     }
+  },
+  "build": {
+    "entries": [
+      "./src/utils"
+    ]
   },
   "main": "./dist/module.cjs",
   "types": "./dist/types.d.ts",
