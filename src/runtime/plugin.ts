@@ -12,7 +12,7 @@ export default defineNuxtPlugin(async (nuxtApp) => {
 
   const runtimeOptions = nuxtApp.$config.public.graphql;
   const runtimeClients: typeof runtimeOptions.clients & Partial<ModuleOptions['clients']> =
-    runtimeOptions?.clients;
+    runtimeOptions?.clients ?? {};
 
   const graphClients = {} as Record<keyof typeof baseOptions.clients, GraphQLClient> &
     Record<keyof typeof runtimeClients, GraphQLClient>;
