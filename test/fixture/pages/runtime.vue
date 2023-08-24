@@ -62,7 +62,7 @@ const { data: countriesMerge } = await useAsyncData('countries', async () => {
 });
 
 const { data: countriesRuntimeOnly } = await useAsyncData('countries', async () => {
-  const data = await $graphql.mergeAtRuntime.request(runtimeOnly, variables);
+  const data = await $graphql.runtimeOnly.request(runtimeOnly, variables);
   return data.countries;
 });
 </script>
