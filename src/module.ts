@@ -25,6 +25,10 @@ export interface ModuleOptions {
   useFetchPolyfill?: boolean;
 }
 
+export interface ModulePublicRuntimeConfig {
+  graphql?: Pick<ModuleOptions, 'clients'>;
+}
+
 export default defineNuxtModule<ModuleOptions>({
   meta: {
     name: 'nuxt-graphql-request',
