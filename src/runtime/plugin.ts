@@ -1,4 +1,4 @@
-import { defineNuxtPlugin } from '#app';
+import { defineNuxtPlugin } from 'nuxt/app';
 import { GraphQLClient } from 'graphql-request';
 import { mergeAll } from 'ramda';
 import type { ModuleOptions } from '../module';
