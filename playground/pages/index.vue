@@ -12,6 +12,12 @@
         {{ movie.title }}
       </li>
     </ul>
+    <h2>Star wars movies (store)</h2>
+    <ul>
+      <li v-for="movie in $nuxt.$store.movies" :key="movie.title">
+        {{ movie.title }}
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -35,7 +41,7 @@ import { gql } from 'graphql-request';
 
 const { $graphql } = useNuxtApp();
 
-const variables = { currency: 'EUR' };
+const variables = { currency: 'USD' };
 
 const countriesQuery: TypedDocumentNode<{ countries: { name: string }[] }, typeof variables> =
   parse(gql`
