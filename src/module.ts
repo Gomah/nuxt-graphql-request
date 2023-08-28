@@ -1,6 +1,7 @@
 import {
   addPlugin,
   addTemplate,
+  addTypeTemplate,
   addVitePlugin,
   addWebpackPlugin,
   createResolver,
@@ -47,6 +48,16 @@ export default defineNuxtModule<ModuleOptions>({
       getContents: () => `
           export const options = ${JSON.stringify(options, undefined, 2)}
         `,
+    });
+
+    // Make TS accept gql file imports
+    addTypeTemplate({
+      filename: 'types/gql-file-import.d.ts',
+      getContents:
+        () => `// see: https://www.typescriptlang.org/docs/handbook/modules.html#wildcard-module-declarations
+declare module '*.gql';
+declare module '*.graphql';
+declare module '*.graphqls';`,
     });
 
     // Do not add the extension since the `.ts` will be transpiled to `.mjs` after `npm run prepack`
