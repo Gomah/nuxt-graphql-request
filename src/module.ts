@@ -1,14 +1,14 @@
 import {
   addPlugin,
   addTemplate,
+  addVitePlugin,
+  addWebpackPlugin,
   createResolver,
   defineNuxtModule,
-  extendWebpackConfig,
 } from '@nuxt/kit';
-import type { RuleSetRule } from 'webpack';
 import type { GraphQLClient } from 'graphql-request';
-
-const ALLOW_GQL_FILES = ['.graphql', '.gql'];
+import rollupGraphql from '@rollup/plugin-graphql';
+import { type UnpluginOptions, createUnplugin } from 'unplugin';
 
 export type ClientConfig = {
   endpoint: string;
@@ -52,33 +52,13 @@ export default defineNuxtModule<ModuleOptions>({
     // Do not add the extension since the `.ts` will be transpiled to `.mjs` after `npm run prepack`
     addPlugin(resolver.resolve('./runtime/plugin'));
 
-    extendWebpackConfig((config) => {
-      const { module = {}, resolve = {} } = config;
-
-      const hasGqlExt = resolve.extensions?.some((ext) => ALLOW_GQL_FILES.includes(ext));
-
-      if (!hasGqlExt) {
-        resolve.extensions = [...(resolve.extensions || []), ...ALLOW_GQL_FILES];
-      }
-
-      const { rules = [] } = module;
-
-      const hasGqlLoader = rules.some(
-        (rule) => typeof rule === 'object' && rule?.use === 'graphql-tag/loader'
-      );
-
-      if (!hasGqlLoader) {
-        const gqlRules: RuleSetRule = {
-          test: /\.(graphql|gql)$/,
-          use: 'graphql-tag/loader',
-        };
-
-        if (!options.includeNodeModules) {
-          gqlRules.exclude = /(node_modules)/;
-        }
-
-        rules.push(gqlRules);
-      }
+    const rollupPlugin = rollupGraphql({
+      exclude: options.includeNodeModules ? null : /node_modules/,
     });
+    const webpackPlugin = createUnplugin(() => rollupPlugin as UnpluginOptions).webpack;
+
+    // Add bundler plugins for graphql file imports
+    addVitePlugin(rollupPlugin);
+    addWebpackPlugin(webpackPlugin);
   },
 });

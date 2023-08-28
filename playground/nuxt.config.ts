@@ -1,5 +1,3 @@
-import rollupGraphql from '@rollup/plugin-graphql';
-
 export default defineNuxtConfig({
   modules: ['../src/module'],
   graphql: {
@@ -17,9 +15,6 @@ export default defineNuxtConfig({
     options: {},
   },
   devtools: { enabled: true },
-  vite: {
-    plugins: [rollupGraphql()],
-  },
   runtimeConfig: {
     public: {
       graphql: {
