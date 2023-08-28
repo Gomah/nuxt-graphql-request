@@ -39,7 +39,7 @@ export default defineNuxtModule<ModuleOptions>({
   },
   defaults: {
     includeNodeModules: false,
-    useFetchPolyfill: true,
+    useFetchPolyfill: false,
     options: {},
     clients: {},
   },
