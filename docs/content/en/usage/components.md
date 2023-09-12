@@ -5,52 +5,56 @@ position: 3
 category: 'Usage'
 ---
 
-## `asyncData`
+## `useAsyncData`
 
-```ts
-import { gql } from 'nuxt-graphql-request';
+```vue
+<script setup>
+import { gql } from 'nuxt-graphql-request/utils';
 
-export default {
-  async asyncData({ $graphql, params }) {
-    const query = gql`
-      query planets {
-        allPlanets {
-          planets {
-            id
-            name
-          }
-        }
+const { $graphql } = useNuxtApp();
+
+const query = gql`
+  query planets {
+    allPlanets {
+      planets {
+        id
+        name
       }
-    `;
+    }
+  }
+`;
 
-    const planets = await $graphql.default.request(query);
-    return { planets };
-  },
-};
+const { data: planets } = await useAsyncData('planets', async () => {
+  const data = await $graphql.default.request(query);
+  return data.allPlanets.planets;
+});
+</script>
 ```
 
-## `methods`/`created`/`mounted`/etc
+## User-defined functions
 
-```ts
-import { gql } from 'nuxt-graphql-request';
+```vue
+<script setup>
+import { gql } from 'nuxt-graphql-request/utils';
 
-export default {
-  methods: {
-    async fetchSomething() {
-      const query = gql`
-        query planets {
-          allPlanets {
-            planets {
-              id
-              name
-            }
-          }
-        }
-      `;
+const { $graphql } = useNuxtApp();
 
-      const planets = await this.$graphql.default.request(query);
-      this.$set(this, 'planets', planets);
-    },
-  },
-};
+const query = gql`
+  query planets {
+    allPlanets {
+      planets {
+        id
+        name
+      }
+    }
+  }
+`;
+
+const planets = ref([])
+
+const fetchPlanets = () => {
+  const data = await $graphql.default.request(query);
+  planets.value = data.allPlanets.planets;
+}
+</script>
 ```

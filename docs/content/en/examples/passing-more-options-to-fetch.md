@@ -5,12 +5,8 @@ position: 6
 category: 'Examples'
 ---
 
-In nuxt.config.ts:
-
-```ts
-// nuxt.config.ts
-
-module.exports = {
+```ts{}[nuxt.config.ts]
+export default defineNuxtConfig({
   graphql: {
     clients: {
       default: {
@@ -22,18 +18,20 @@ module.exports = {
       },
     },
   },
-};
+});
 ```
 
 Or using setHeaders / setHeader:
 
 ```ts
+const { $graphql } = useNuxtApp();
+
 // Set a single header
-this.$graphql.default.setHeader('credentials', 'include');
-this.$graphql.default.setHeader('mode', 'cors');
+$graphql.default.setHeader('credentials', 'include');
+$graphql.default.setHeader('mode', 'cors');
 
 // Override all existing headers
-this.$graphql.default.setHeaders({
+$graphql.default.setHeaders({
   credentials: 'include',
   mode: 'cors',
 });

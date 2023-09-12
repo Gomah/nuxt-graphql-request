@@ -1,14 +1,14 @@
 <template>
-  <div>
+  <div id="test">
     <h2>Countries using EUR</h2>
     <ul>
-      <li v-for="country in eur">
+      <li v-for="country in batch.eur" :key="country.name">
         {{ country.name }}
       </li>
     </ul>
     <h2>Countries using AUD</h2>
     <ul>
-      <li v-for="country in aud">
+      <li v-for="country in batch.aud" :key="country.name">
         {{ country.name }}
       </li>
     </ul>
@@ -19,35 +19,37 @@
 export default {
   name: 'Batch',
 
-  data: () => ({
-    eur: [],
-    aud: [],
-  }),
-
   head() {
     return {
       title: 'Batch / Countries',
     };
   },
-
-  async asyncData({ $graphql }) {
-    const countriesQuery = /* GraphQL */ `
-      query Countries($currency: String!) {
-        countries(filter: { currency: { eq: $currency } }) {
-          name
-        }
-      }
-    `;
-
-    const [{ data: eur }, { data: aud }] = await $graphql.countries.batchRequests([
-      { document: countriesQuery, variables: { currency: 'EUR' } },
-      { document: countriesQuery, variables: { currency: 'AUD' } },
-    ]);
-
-    return {
-      eur: eur.countries,
-      aud: aud.countries,
-    };
-  },
 };
+</script>
+
+<script setup>
+import { useAsyncData, useNuxtApp } from 'nuxt/app';
+import { gql } from '../../../src/utils';
+
+const { $graphql } = useNuxtApp();
+
+const countriesQuery = gql`
+  query Countries($currency: String!) {
+    countries(filter: { currency: { eq: $currency } }) {
+      name
+    }
+  }
+`;
+
+const { data: batch } = await useAsyncData('countries', async () => {
+  const [{ data: eur }, { data: aud }] = await $graphql.countries.batchRequests([
+    { document: countriesQuery, variables: { currency: 'EUR' } },
+    { document: countriesQuery, variables: { currency: 'AUD' } },
+  ]);
+
+  return {
+    eur: eur.countries,
+    aud: aud.countries,
+  };
+});
 </script>

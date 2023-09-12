@@ -8,35 +8,31 @@ category: 'Examples'
 It is possible to cancel a request using an `AbortController` signal.
 
 ```vue
-<script>
-import { gql } from 'nuxt-graphql-request';
+<script setup>
+import { gql } from 'nuxt-graphql-request/utils';
 
-export default {
-  methods: {
-    async fetchSomething() {
-      const query = gql`
-        query planets {
-          allPlanets {
-            planets {
-              id
-              name
-            }
-          }
+const { $graphql } = useNuxtApp();
+
+const fetchSomething = async () => {
+  const query = gql`
+    query planets {
+      allPlanets {
+        planets {
+          id
+          name
         }
-      `;
+      }
+    }
+  `;
 
-      const abortController = new AbortController();
+  const abortController = new AbortController();
 
-      const client = new GraphQLClient(endpoint);
+  const planets = await $graphql.default.request({
+    document: query,
+    signal: abortController.signal,
+  });
 
-      const planets = await this.$graphql.default.request({
-        document: query,
-        signal: abortController.signal,
-      });
-
-      abortController.abort();
-    },
-  },
+  abortController.abort();
 };
 </script>
 ```

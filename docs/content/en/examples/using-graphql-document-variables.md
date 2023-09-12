@@ -6,28 +6,26 @@ category: 'Examples'
 ---
 
 ```vue
-<script>
-import { gql } from 'nuxt-graphql-request';
+<script setup>
+import { gql } from 'nuxt-graphql-request/utils';
 
-export default {
-  methods: {
-    async fetchSomething() {
-      const query = gql`
-        query planets($first: Int) {
-          allPlanets(first: $first) {
-            planets {
-              id
-              name
-            }
-          }
+const { $graphql } = useNuxtApp();
+
+const fetchSomething = async () => {
+  const query = gql`
+    query planets($first: Int) {
+      allPlanets(first: $first) {
+        planets {
+          id
+          name
         }
-      `;
+      }
+    }
+  `;
 
-      const variables = { first: 10 };
+  const variables = { first: 10 };
 
-      const planets = await this.$graphql.default.request(query, variables);
-    },
-  },
+  const planets = await this.$graphql.default.request(query, variables);
 };
 </script>
 ```

@@ -6,29 +6,27 @@ category: 'Examples'
 ---
 
 ```vue
-<script>
-import { gql } from 'nuxt-graphql-request';
+<script setup>
+import { gql } from 'nuxt-graphql-request/utils';
 
-export default {
-  methods: {
-    async fetchSomething() {
-      const mutation = gql`
-        mutation AddMovie($title: String!, $releaseDate: Int!) {
-          insert_movies_one(object: { title: $title, releaseDate: $releaseDate }) {
-            title
-            releaseDate
-          }
-        }
-      `;
+const { $graphql } = useNuxtApp();
 
-      const variables = {
-        title: 'Inception',
-        releaseDate: 2010,
-      };
+const fetchSomething = async () => {
+  const mutation = gql`
+    mutation AddMovie($title: String!, $releaseDate: Int!) {
+      insert_movies_one(object: { title: $title, releaseDate: $releaseDate }) {
+        title
+        releaseDate
+      }
+    }
+  `;
 
-      const data = await this.$graphql.default.request(mutation, variables);
-    },
-  },
+  const variables = {
+    title: 'Inception',
+    releaseDate: 2010,
+  };
+
+  const data = await $graphql.default.request(mutation, variables);
 };
 </script>
 ```

@@ -8,7 +8,9 @@ category: 'Examples'
 The `request` method will return the `data` or `errors` key from the response. If you need to access the `extensions` key you can use the `rawRequest` method:
 
 ```ts
-import { gql } from 'nuxt-graphql-request';
+import { gql } from 'nuxt-graphql-request/utils';
+
+const { $graphql } = useNuxtApp();
 
 const query = gql`
   query planets($first: Int) {
@@ -23,7 +25,7 @@ const query = gql`
 
 const variables = { first: 10 };
 
-const { data, errors, extensions, headers, status } = await this.$graphql.default.rawRequest(
+const { data, errors, extensions, headers, status } = await $graphql.default.rawRequest(
   endpoint,
   query,
   variables

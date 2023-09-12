@@ -1,5 +1,5 @@
 <template>
-  <div id="test">
+  <div>
     <h2>Countries</h2>
     <ul>
       <li v-for="country in countries" :key="country.name">
@@ -9,6 +9,12 @@
     <h2>Star wars movies</h2>
     <ul>
       <li v-for="movie in movies" :key="movie.title">
+        {{ movie.title }}
+      </li>
+    </ul>
+    <h2>Star wars movies (store)</h2>
+    <ul>
+      <li v-for="movie in $nuxt.$store.movies" :key="movie.title">
         {{ movie.title }}
       </li>
     </ul>
@@ -31,11 +37,11 @@ export default {
 import { useAsyncData, useNuxtApp } from 'nuxt/app';
 import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
 import { parse } from 'graphql';
-import { gql } from '../../../src/utils';
+import { gql } from 'graphql-request';
 
 const { $graphql } = useNuxtApp();
 
-const variables = { currency: 'EUR' };
+const variables = { currency: 'USD' };
 
 const countriesQuery: TypedDocumentNode<{ countries: { name: string }[] }, typeof variables> =
   parse(gql`
