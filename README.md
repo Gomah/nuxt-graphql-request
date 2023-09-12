@@ -36,6 +36,13 @@ Install with npm:
 npm install nuxt-graphql-request graphql --save-dev
 ```
 
+For Nuxt2, use nuxt-graphql-request v6:
+
+```bash
+
+yarn add nuxt-graphql-request@v6 graphql --dev
+```
+
 **nuxt.config.js**
 
 ```ts
