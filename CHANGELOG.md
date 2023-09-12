@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.0.0](https://github.com/Gomah/nuxt-graphql-request/compare/v6.0.3...v7.0.0) (2023-09-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* bump graphql-request to v6.1.0 & cross-fetch to v4.0.0
+* prepare v7
+
+### Features
+
+* bump graphql-request to v6.1.0 & cross-fetch to v4.0.0 ([d0fa384](https://github.com/Gomah/nuxt-graphql-request/commit/d0fa384f5dffac95988b68009111ea99ab13065e))
+* migrate to nuxt v3 ([#53](https://github.com/Gomah/nuxt-graphql-request/issues/53)) ([519588d](https://github.com/Gomah/nuxt-graphql-request/commit/519588db7fd651bb6cfeed7b1388185c92700a42))
+
+
+### Chore
+
+* prepare v7 ([27f9417](https://github.com/Gomah/nuxt-graphql-request/commit/27f9417e25149773112d32f0c919723252557e10))
+
+
+### Documentation
+
+* add instructions for nuxt2 ([ecdcbc0](https://github.com/Gomah/nuxt-graphql-request/commit/ecdcbc02194336939b2c7f6c0ca730d72c1e4d3e))
+
 ### [6.0.3](https://github.com/Gomah/nuxt-graphql-request/compare/v6.0.2...v6.0.3) (2023-03-13)
 
 
