@@ -10,7 +10,11 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@nuxt/content-theme-docs": "0.11.1",
     "nuxt": "2.15.8"
+  },
+  "resolutions": {
+    "nuxt/@nuxt/components": "2.1.8"
   }
 }
