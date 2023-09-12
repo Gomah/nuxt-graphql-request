@@ -10,28 +10,27 @@ It's possible to use a middleware to pre-process any request or handle raw respo
 Request & response middleware example (set actual auth token to each request & log request trace id if error caused):
 
 ```ts
-
 function requestMiddleware(request: RequestInit) {
-  const token = getToken()
+  const token = getToken();
   return {
     ...request,
     headers: { ...request.headers, 'x-auth-token': token },
-  }
+  };
 }
 
 function responseMiddleware(response: Response<unknown>) {
   if (response.errors) {
-    const traceId = response.headers.get('x-b3-traceid') || 'unknown'
+    const traceId = response.headers.get('x-b3-traceid') || 'unknown';
     console.error(
       `[${traceId}] Request error:
         status ${response.status}
         details: ${response.errors}`
-    )
+    );
   }
 }
 
-module.exports = {
-  buildModules: ['nuxt-graphql-request'],
+export default defineNuxtConfig({
+  modules: ['nuxt-graphql-request'],
 
   graphql: {
     /**
@@ -66,7 +65,7 @@ module.exports = {
 
     /**
      * Optional
-     * default: true (this includes cross-fetch/polyfill before creating the graphql client)
+     * default: false (this includes cross-fetch/polyfill before creating the graphql client)
      */
     useFetchPolyfill: true,
 
@@ -76,5 +75,5 @@ module.exports = {
      */
     includeNodeModules: true,
   },
-};
+});
 ```

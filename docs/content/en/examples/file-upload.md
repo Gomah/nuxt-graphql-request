@@ -6,23 +6,21 @@ category: 'Examples'
 ---
 
 ```vue
-<script>
-import { gql } from 'nuxt-graphql-request';
+<script setup>
+import { gql } from 'nuxt-graphql-request/utils';
 
-export default {
-  methods: {
-    handleFileUpload(file) {
-      const mutation = gql`
-        mutation uploadUserAvatar($userId: Int!, $file: Upload!) {
-          updateUser(id: $userId, input: { avatar: $file })
-        }
-      `;
+const { $graphql } = useNuxtApp();
 
-      const variables = { userId: 1, file };
+const handleFileUpload = (file) => {
+  const mutation = gql`
+    mutation uploadUserAvatar($userId: Int!, $file: Upload!) {
+      updateUser(id: $userId, input: { avatar: $file })
+    }
+  `;
 
-      this.$graphql.default.request(mutation, variables);
-    },
-  },
+  const variables = { userId: 1, file };
+
+  $graphql.default.request(mutation, variables);
 };
 </script>
 ```

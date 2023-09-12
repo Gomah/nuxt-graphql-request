@@ -5,15 +5,21 @@ position: 4
 category: 'Usage'
 ---
 
-## Store actions (including `nuxtServerInit`)
+## Store actions
 
 ```ts
-import { gql } from 'nuxt-graphql-request';
+import { defineStore } from 'pinia';
+import { gql } from 'nuxt-graphql-request/utils';
+import { useNuxtApp } from 'nuxt/app';
 
-// In store
-export default {
+type Planet = { id: number; name: string };
+
+export const useMainStore = defineStore('main', {
+  state: () => ({
+    planets: null as Planet[] | null,
+  }),
   actions: {
-    async fetchAllPlanets({ commit }) {
+    async fetchAllPlanets() {
       const query = gql`
         query planets {
           allPlanets {
@@ -25,9 +31,9 @@ export default {
         }
       `;
 
-      const planets = await this.$graphql.default.request(query);
-      commit('SET_PLANETS', planets);
+      const data = await useNuxtApp().$graphql.default.request(query);
+      this.planets = data.allPlanets.planets;
     },
   },
-};
+});
 ```

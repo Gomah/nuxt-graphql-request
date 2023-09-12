@@ -7,23 +7,38 @@ category: 'Guide'
 
 ## Install
 
-Install with yarn:
+<code-group>
+  <code-block label="yarn" active>
 
 ```bash
 yarn add nuxt-graphql-request graphql --dev
 ```
 
-Install with npm:
+  </code-block>
+  
+  <code-block label="npm">
 
 ```bash
 npm install nuxt-graphql-request graphql --save-dev
 ```
 
-## **nuxt.config.js**
+  </code-block>
+  
+  <code-block label="pnpm">
+
+```bash
+pnpm add nuxt-graphql-request graphql -D
+```
+
+  </code-block>
+
+</code-group>
+
+## **nuxt.config.ts**
 
 ```ts
-module.exports = {
-  buildModules: ['nuxt-graphql-request'],
+export default defineNuxtConfig({
+  modules: ['nuxt-graphql-request'],
 
   graphql: {
     /**
@@ -57,7 +72,7 @@ module.exports = {
 
     /**
      * Optional
-     * default: true (this includes cross-fetch/polyfill before creating the graphql client)
+     * default: false (this includes cross-fetch/polyfill before creating the graphql client)
      */
     useFetchPolyfill: true,
 
@@ -67,59 +82,39 @@ module.exports = {
      */
     includeNodeModules: true,
   },
-};
+});
 ```
 
 ## Runtime Config
 
-If you need to supply your endpoint at runtime, rather than build time, you can use the [Runtime Config](https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-runtime-config) to provide this value:
+If you need to supply your endpoint at runtime, rather than build time, you can use the [Runtime Config](https://nuxt.com/docs/guide/going-further/runtime-config) to provide this value:
 
-**nuxt.config.js**
-
-```ts
-module.exports = {
-  publicRuntimeConfig: {
-    graphql: {
-      clients: {
-        default: {
-          endpoint: '<client endpoint>',
+```ts{}[nuxt.config.ts]
+export default defineNuxtConfig({
+  runtimeConfig: {
+    public: {
+      graphql: {
+        clients: {
+          default: {
+            endpoint: '<client endpoint>',
+          },
+          secondClient: {
+            endpoint: '<client endpoint>',
+          },
+          // ...more clients
         },
-        secondClient: {
-          endpoint: '<client endpoint>',
-        },
-        // ...more clients
       },
     },
   },
-};
+});
 ```
 
 ## TypeScript
 
-`nuxt-shopify` offers type definitions. Just add an entry in `tsconfig.json`.
-
-<code-group>
-  <code-block label="Nuxt 2.9+" active>
+Type definitions should work out-of-the-box. You should already have Typescript set up to [extend Nuxt's auto-generated config](https://nuxt.com/docs/guide/directory-structure/tsconfig). If not, you can start here:
 
 ```json{}[tsconfig.json]
 {
-  "compilerOptions": {
-    "types": ["@nuxt/types", "nuxt-graphql-request"]
-  }
+  "extends": "./.nuxt/tsconfig.json"
 }
 ```
-
-  </code-block>
-  <code-block label="Nuxt < 2.9">
-
-```json{}[tsconfig.json]
-{
-  "compilerOptions": {
-    "types": ["@nuxt/vue-app", "nuxt-graphql-request"]
-  }
-}
-```
-
-  </code-block>
-
-</code-group>

@@ -5,10 +5,8 @@ position: 5
 category: 'Examples'
 ---
 
-```ts
-// nuxt.config.ts
-
-module.exports = {
+```ts{}[nuxt.config.ts]
+export default defineNuxtConfig({
   graphql: {
     clients: {
       default: {
@@ -21,7 +19,7 @@ module.exports = {
       },
     },
   },
-};
+});
 ```
 
 ### Incrementally setting headers
@@ -29,11 +27,13 @@ module.exports = {
 If you want to set headers after the GraphQLClient has been initialised, you can use the `setHeader()` or `setHeaders()` functions.
 
 ```ts
+const { $graphql } = useNuxtApp();
+
 // Set a single header
-this.$graphql.default.setHeaders({ authorization: 'Bearer MY_TOKEN' });
+$graphql.default.setHeaders({ authorization: 'Bearer MY_TOKEN' });
 
 // Override all existing headers
-this.$graphql.default.setHeader('authorization', 'Bearer MY_TOKEN');
+$graphql.default.setHeader('authorization', 'Bearer MY_TOKEN');
 ```
 
 ### Set endpoint
@@ -41,7 +41,9 @@ this.$graphql.default.setHeader('authorization', 'Bearer MY_TOKEN');
 If you want to change the endpoint after the GraphQLClient has been initialised, you can use the `setEndpoint()` function.
 
 ```ts
-this.$graphql.default.setEndpoint(newEndpoint);
+const { $graphql } = useNuxtApp();
+
+$graphql.default.setEndpoint(newEndpoint);
 ```
 
 ### passing-headers-in-each-request
@@ -49,30 +51,32 @@ this.$graphql.default.setEndpoint(newEndpoint);
 It is possible to pass custom headers for each request. `request()` and `rawRequest()` accept a header object as the third parameter
 
 ```vue
-<script>
+<script setup>
+import { gql } from 'nuxt-graphql-request/utils';
+
+const { $graphql } = useNuxtApp();
+
 const requestHeaders = {
   authorization: 'Bearer MY_TOKEN',
 };
 
-export default {
-  methods: {
-    async fetchSomething() {
-      const query = gql`
-        query planets {
-          allPlanets {
-            planets {
-              id
-              name
-            }
-          }
-        }
-      `;
+const planets = ref();
 
-      // Overrides the clients headers with the passed values
-      const planets = await this.$graphql.default.request(query, {}, requestHeaders);
-      this.$set(this, 'planets', planets);
-    },
-  },
+const fetchSomething = async () => {
+  const query = gql`
+    query planets {
+      allPlanets {
+        planets {
+          id
+          name
+        }
+      }
+    }
+  `;
+
+  // Overrides the clients headers with the passed values
+  const data = await $graphql.default.request(query, {}, requestHeaders);
+  planets.value = data.allPlanets.planets;
 };
 </script>
 ```

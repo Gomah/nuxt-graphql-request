@@ -6,6 +6,7 @@ category: ''
 features:
   - Most simple and lightweight GraphQL client.
   - Promise-based API (works with async / await).
+  - Nuxt 3 support.
   - TypeScript support.
   - AST support.
   - GraphQL Loader support.
