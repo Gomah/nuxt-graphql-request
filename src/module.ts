@@ -9,7 +9,7 @@ import {
 } from '@nuxt/kit';
 import type { GraphQLClient } from 'graphql-request';
 import rollupGraphql from '@rollup/plugin-graphql';
-import { type UnpluginOptions, createUnplugin } from 'unplugin';
+import { type UnpluginOptions, createUnplugin, VitePlugin } from 'unplugin';
 
 export type ClientConfig = {
   endpoint: string;
@@ -73,7 +73,7 @@ declare module '*.graphqls';`,
     const webpackPlugin = createUnplugin(() => rollupPlugin as UnpluginOptions).webpack;
 
     // Add bundler plugins for graphql file imports
-    addVitePlugin(rollupPlugin);
+    addVitePlugin(rollupPlugin as VitePlugin);
     addWebpackPlugin(webpackPlugin);
   },
 });

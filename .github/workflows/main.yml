@@ -7,26 +7,26 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node: ['14.x', '16.x']
+        node: ['16.x', '18.x', '20.x']
         os: [ubuntu-latest, macOS-latest]
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Use Node ${{ matrix.node }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
+          cache: 'yarn'
 
-      - name: Install deps and build (with cache)
-        uses: bahmutov/npm-install@v1
-
-      - name: Generate
-        run: yarn nuxt generate test/fixture
+      - name: Install
+        run: yarn install
 
       - name: Lint
         run: yarn test:lint
 
       - name: Tests
-        run: yarn test:jest
+        run: yarn test

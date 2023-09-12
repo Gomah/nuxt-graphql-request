@@ -20,6 +20,7 @@
 - GraphQL Loader support.
 
 [📖 **Release Notes**](./CHANGELOG.md)
+[📄 **Docs**](https://nuxt-graphql-request.vercel.app/)
 
 ## Setup
 
@@ -110,69 +111,90 @@ module.exports = {
 };
 ```
 
+
+## TypeScript
+
+Type definitions should work out-of-the-box. You should already have Typescript set up to [extend Nuxt's auto-generated config](https://nuxt.com/docs/guide/directory-structure/tsconfig). If not, you can start here:
+
+```json{}[tsconfig.json]
+{
+  "extends": "./.nuxt/tsconfig.json"
+}
+```
+
 ## Usage
 
 ### Component
 
-**`asyncData`**
+## `useAsyncData`
 
-```ts
-import { gql } from 'nuxt-graphql-request';
+```vue
+<script setup>
+import { gql } from 'nuxt-graphql-request/utils';
 
-export default {
-  async asyncData({ $graphql, params }) {
-    const query = gql`
-      query planets {
-        allPlanets {
-          planets {
-            id
-            name
-          }
-        }
+const { $graphql } = useNuxtApp();
+
+const query = gql`
+  query planets {
+    allPlanets {
+      planets {
+        id
+        name
       }
-    `;
+    }
+  }
+`;
 
-    const planets = await $graphql.default.request(query);
-    return { planets };
-  },
-};
+const { data: planets } = await useAsyncData('planets', async () => {
+  const data = await $graphql.default.request(query);
+  return data.allPlanets.planets;
+});
+</script>
 ```
 
-**`methods`/`created`/`mounted`/etc**
+## User-defined functions
 
-```ts
-import { gql } from 'nuxt-graphql-request';
+```vue
+<script setup>
+import { gql } from 'nuxt-graphql-request/utils';
 
-export default {
-  methods: {
-    async fetchSomething() {
-      const query = gql`
-        query planets {
-          allPlanets {
-            planets {
-              id
-              name
-            }
-          }
-        }
-      `;
+const { $graphql } = useNuxtApp();
 
-      const planets = await this.$graphql.default.request(query);
-      this.$set(this, 'planets', planets);
-    },
-  },
-};
+const query = gql`
+  query planets {
+    allPlanets {
+      planets {
+        id
+        name
+      }
+    }
+  }
+`;
+
+const planets = ref([])
+
+const fetchPlanets = () => {
+  const data = await $graphql.default.request(query);
+  planets.value = data.allPlanets.planets;
+}
+</script>
 ```
 
-### Store actions (including `nuxtServerInit`)
+### Store actions
 
 ```ts
-import { gql } from 'nuxt-graphql-request';
+import { defineStore } from 'pinia';
+import { gql } from 'nuxt-graphql-request/utils';
+import { useNuxtApp } from 'nuxt/app';
 
-// In store
-export default {
+type Planet = { id: number; name: string };
+
+export const useMainStore = defineStore('main', {
+  state: () => ({
+    planets: null as Planet[] | null,
+  }),
   actions: {
-    async fetchAllPlanets({ commit }) {
+    async fetchAllPlanets() {
       const query = gql`
         query planets {
           allPlanets {
@@ -184,11 +206,11 @@ export default {
         }
       `;
 
-      const planets = await this.$graphql.default.request(query);
-      commit('SET_PLANETS', planets);
+      const data = await useNuxtApp().$graphql.default.request(query);
+      this.planets = data.allPlanets.planets;
     },
   },
-};
+});
 ```
 
 ### GraphQL Request Client
@@ -197,12 +219,8 @@ export default {
 
 #### Authentication via HTTP header
 
-In nuxt.config.ts
-
-```ts
-// nuxt.config.ts
-
-module.exports = {
+```ts{}[nuxt.config.ts]
+export default defineNuxtConfig({
   graphql: {
     clients: {
       default: {
@@ -215,7 +233,7 @@ module.exports = {
       },
     },
   },
-};
+});
 ```
 
 ##### Incrementally setting headers
@@ -223,11 +241,13 @@ module.exports = {
 If you want to set headers after the GraphQLClient has been initialised, you can use the `setHeader()` or `setHeaders()` functions.
 
 ```ts
+const { $graphql } = useNuxtApp();
+
 // Set a single header
-this.$graphql.default.setHeader('authorization', 'Bearer MY_TOKEN');
+$graphql.default.setHeaders({ authorization: 'Bearer MY_TOKEN' });
 
 // Override all existing headers
-this.$graphql.default.setHeaders({ authorization: 'Bearer MY_TOKEN' });
+$graphql.default.setHeader('authorization', 'Bearer MY_TOKEN');
 ```
 
 ##### Set endpoint
@@ -235,7 +255,9 @@ this.$graphql.default.setHeaders({ authorization: 'Bearer MY_TOKEN' });
 If you want to change the endpoint after the GraphQLClient has been initialised, you can use the `setEndpoint()` function.
 
 ```ts
-this.$graphql.default.setEndpoint(newEndpoint);
+const { $graphql } = useNuxtApp();
+
+$graphql.default.setEndpoint(newEndpoint);
 ```
 
 ##### passing-headers-in-each-request
@@ -243,42 +265,40 @@ this.$graphql.default.setEndpoint(newEndpoint);
 It is possible to pass custom headers for each request. `request()` and `rawRequest()` accept a header object as the third parameter
 
 ```vue
-<script>
+<script setup>
+import { gql } from 'nuxt-graphql-request/utils';
+
+const { $graphql } = useNuxtApp();
+
 const requestHeaders = {
   authorization: 'Bearer MY_TOKEN',
 };
 
-export default {
-  methods: {
-    async fetchSomething() {
-      const query = gql`
-        query planets {
-          allPlanets {
-            planets {
-              id
-              name
-            }
-          }
-        }
-      `;
+const planets = ref();
 
-      // Overrides the clients headers with the passed values
-      const planets = await this.$graphql.default.request(query, {}, requestHeaders);
-      this.$set(this, 'planets', planets);
-    },
-  },
+const fetchSomething = async () => {
+  const query = gql`
+    query planets {
+      allPlanets {
+        planets {
+          id
+          name
+        }
+      }
+    }
+  `;
+
+  // Overrides the clients headers with the passed values
+  const data = await $graphql.default.request(query, {}, requestHeaders);
+  planets.value = data.allPlanets.planets;
 };
 </script>
 ```
 
 #### Passing more options to `fetch`
 
-In nuxt.config.ts:
-
-```ts
-// nuxt.config.ts
-
-module.exports = {
+```ts{}[nuxt.config.ts]
+export default defineNuxtConfig({
   graphql: {
     clients: {
       default: {
@@ -290,18 +310,20 @@ module.exports = {
       },
     },
   },
-};
+});
 ```
 
 Or using setHeaders / setHeader:
 
 ```ts
+const { $graphql } = useNuxtApp();
+
 // Set a single header
-this.$graphql.default.setHeader('credentials', 'include');
-this.$graphql.default.setHeader('mode', 'cors');
+$graphql.default.setHeader('credentials', 'include');
+$graphql.default.setHeader('mode', 'cors');
 
 // Override all existing headers
-this.$graphql.default.setHeaders({
+$graphql.default.setHeaders({
   credentials: 'include',
   mode: 'cors',
 });
@@ -310,28 +332,26 @@ this.$graphql.default.setHeaders({
 #### Using GraphQL Document variables
 
 ```vue
-<script>
-import { gql } from 'nuxt-graphql-request';
+<script setup>
+import { gql } from 'nuxt-graphql-request/utils';
 
-export default {
-  methods: {
-    async fetchSomething() {
-      const query = gql`
-        query planets($first: Int) {
-          allPlanets(first: $first) {
-            planets {
-              id
-              name
-            }
-          }
+const { $graphql } = useNuxtApp();
+
+const fetchSomething = async () => {
+  const query = gql`
+    query planets($first: Int) {
+      allPlanets(first: $first) {
+        planets {
+          id
+          name
         }
-      `;
+      }
+    }
+  `;
 
-      const variables = { first: 10 };
+  const variables = { first: 10 };
 
-      const planets = await this.$graphql.default.request(query, variables);
-    },
-  },
+  const planets = await this.$graphql.default.request(query, variables);
 };
 </script>
 ```
@@ -339,32 +359,27 @@ export default {
 #### Error handling
 
 ```vue
-<script>
-import { gql } from 'nuxt-graphql-request';
+<script setup>
+import { gql } from 'nuxt-graphql-request/utils';
 
-export default {
-  methods: {
-    async fetchSomething() {
-      const query = gql`
-        {
-          Movie(title: "Inception") {
-            releaseDate
-            actors {
-              fullname # "Cannot query field 'fullname' on type 'Actor'. Did you mean 'name'?"
-            }
-          }
-        }
-      `;
+const { $graphql } = useNuxtApp();
 
-      try {
-        const data = await this.$graphql.default.request(endpoint, query);
-        console.log(JSON.stringify(data, undefined, 2));
-      } catch (error) {
-        console.error(JSON.stringify(error, undefined, 2));
-        process.exit(1);
+const fetchSomething = async () => {
+  const mutation = gql`
+    mutation AddMovie($title: String!, $releaseDate: Int!) {
+      insert_movies_one(object: { title: $title, releaseDate: $releaseDate }) {
+        title
+        releaseDate
       }
-    },
-  },
+    }
+  `;
+
+  const variables = {
+    title: 'Inception',
+    releaseDate: 2010,
+  };
+
+  const data = await $graphql.default.request(mutation, variables);
 };
 </script>
 ```
@@ -372,29 +387,30 @@ export default {
 #### GraphQL Mutations
 
 ```vue
-<script>
-import { gql } from 'nuxt-graphql-request';
+<script setup>
+import { gql } from 'nuxt-graphql-request/utils';
 
-export default {
-  methods: {
-    async fetchSomething() {
-      const mutation = gql`
-        mutation AddMovie($title: String!, $releaseDate: Int!) {
-          insert_movies_one(object: { title: $title, releaseDate: $releaseDate }) {
-            title
-            releaseDate
-          }
+const { $graphql } = useNuxtApp();
+
+const fetchSomething = async () => {
+  const query = gql`
+    {
+      Movie(title: "Inception") {
+        releaseDate
+        actors {
+          fullname # "Cannot query field 'fullname' on type 'Actor'. Did you mean 'name'?"
         }
-      `;
+      }
+    }
+  `;
 
-      const variables = {
-        title: 'Inception',
-        releaseDate: 2010,
-      };
-
-      const data = await this.$graphql.default.request(mutation, variables);
-    },
-  },
+  try {
+    const data = await $graphql.default.request(query);
+    console.log(JSON.stringify(data, undefined, 2));
+  } catch (error) {
+    console.error(JSON.stringify(error, undefined, 2));
+    process.exit(1);
+  }
 };
 </script>
 ```
@@ -404,7 +420,9 @@ export default {
 The `request` method will return the `data` or `errors` key from the response. If you need to access the `extensions` key you can use the `rawRequest` method:
 
 ```ts
-import { gql } from 'nuxt-graphql-request';
+import { gql } from 'nuxt-graphql-request/utils';
+
+const { $graphql } = useNuxtApp();
 
 const query = gql`
   query planets($first: Int) {
@@ -419,7 +437,7 @@ const query = gql`
 
 const variables = { first: 10 };
 
-const { data, errors, extensions, headers, status } = await this.$graphql.default.rawRequest(
+const { data, errors, extensions, headers, status } = await $graphql.default.rawRequest(
   endpoint,
   query,
   variables
@@ -430,23 +448,21 @@ console.log(JSON.stringify({ data, errors, extensions, headers, status }, undefi
 #### File Upload
 
 ```vue
-<script>
-import { gql } from 'nuxt-graphql-request';
+<script setup>
+import { gql } from 'nuxt-graphql-request/utils';
 
-export default {
-  methods: {
-    handleFileUpload(file) {
-      const mutation = gql`
-        mutation uploadUserAvatar($userId: Int!, $file: Upload!) {
-          updateUser(id: $userId, input: { avatar: $file })
-        }
-      `;
+const { $graphql } = useNuxtApp();
 
-      const variables = { userId: 1, file };
+const handleFileUpload = (file) => {
+  const mutation = gql`
+    mutation uploadUserAvatar($userId: Int!, $file: Upload!) {
+      updateUser(id: $userId, input: { avatar: $file })
+    }
+  `;
 
-      this.$graphql.default.request(mutation, variables);
-    },
-  },
+  const variables = { userId: 1, file };
+
+  $graphql.default.request(mutation, variables);
 };
 </script>
 ```
@@ -454,61 +470,57 @@ export default {
 #### Batch queries
 
 ```vue
-<script>
-import { gql } from 'nuxt-graphql-request';
+<script setup>
+const { $graphql } = useNuxtApp();
 
-export default {
-  methods: {
-    async fetchSomething() {
-      const query1 = /* GraphQL */ `
-        query ($id: ID!) {
-          capsule(id: $id) {
-            id
-            landings
-          }
-        }
-      `;
-
-      const variables1 = {
-        id: 'C105',
-      };
-
-      const query2 = /* GraphQL */ `
-        {
-          rockets(limit: 10) {
-            active
-          }
-        }
-      `;
-
-      const query3 = /* GraphQL */ `
-        query ($id: ID!) {
-          core(id: $id) {
-            id
-            block
-            original_launch
-          }
-        }
-      `;
-
-      const variables3 = {
-        id: 'B1015',
-      };
-
-      try {
-        const data = await this.$graphql.default.batchRequests([
-          { document: query1, variables: variables1 },
-          { document: query2 },
-          { document: query3, variables: variables3 },
-        ]);
-
-        console.log(JSON.stringify(data, undefined, 2));
-      } catch (error) {
-        console.error(JSON.stringify(error, undefined, 2));
-        process.exit(1);
+const fetchSomething = async () => {
+  const query1 = /* GraphQL */ `
+    query ($id: ID!) {
+      capsule(id: $id) {
+        id
+        landings
       }
-    },
-  },
+    }
+  `;
+
+  const variables1 = {
+    id: 'C105',
+  };
+
+  const query2 = /* GraphQL */ `
+    {
+      rockets(limit: 10) {
+        active
+      }
+    }
+  `;
+
+  const query3 = /* GraphQL */ `
+    query ($id: ID!) {
+      core(id: $id) {
+        id
+        block
+        original_launch
+      }
+    }
+  `;
+
+  const variables3 = {
+    id: 'B1015',
+  };
+
+  try {
+    const data = await $graphql.default.batchRequests([
+      { document: query1, variables: variables1 },
+      { document: query2 },
+      { document: query3, variables: variables3 },
+    ]);
+
+    console.log(JSON.stringify(data, undefined, 2));
+  } catch (error) {
+    console.error(JSON.stringify(error, undefined, 2));
+    process.exit(1);
+  }
 };
 </script>
 ```
@@ -518,33 +530,31 @@ export default {
 It is possible to cancel a request using an `AbortController` signal.
 
 ```vue
-<script>
-import { gql } from 'nuxt-graphql-request';
+<script setup>
+import { gql } from 'nuxt-graphql-request/utils';
 
-export default {
-  methods: {
-    async fetchSomething() {
-      const query = gql`
-        query planets {
-          allPlanets {
-            planets {
-              id
-              name
-            }
-          }
+const { $graphql } = useNuxtApp();
+
+const fetchSomething = async () => {
+  const query = gql`
+    query planets {
+      allPlanets {
+        planets {
+          id
+          name
         }
-      `;
+      }
+    }
+  `;
 
-      const abortController = new AbortController();
+  const abortController = new AbortController();
 
-      const planets = await this.$graphql.default.request({
-        document: query,
-        signal: abortController.signal,
-      });
+  const planets = await $graphql.default.request({
+    document: query,
+    signal: abortController.signal,
+  });
 
-      abortController.abort();
-    },
-  },
+  abortController.abort();
 };
 </script>
 ```
@@ -564,28 +574,27 @@ It's possible to use a middleware to pre-process any request or handle raw respo
 Request & response middleware example (set actual auth token to each request & log request trace id if error caused):
 
 ```ts
-
 function requestMiddleware(request: RequestInit) {
-  const token = getToken()
+  const token = getToken();
   return {
     ...request,
     headers: { ...request.headers, 'x-auth-token': token },
-  }
+  };
 }
 
 function responseMiddleware(response: Response<unknown>) {
   if (response.errors) {
-    const traceId = response.headers.get('x-b3-traceid') || 'unknown'
+    const traceId = response.headers.get('x-b3-traceid') || 'unknown';
     console.error(
       `[${traceId}] Request error:
         status ${response.status}
         details: ${response.errors}`
-    )
+    );
   }
 }
 
-module.exports = {
-  buildModules: ['nuxt-graphql-request'],
+export default defineNuxtConfig({
+  modules: ['nuxt-graphql-request'],
 
   graphql: {
     /**
@@ -620,7 +629,7 @@ module.exports = {
 
     /**
      * Optional
-     * default: true (this includes cross-fetch/polyfill before creating the graphql client)
+     * default: false (this includes cross-fetch/polyfill before creating the graphql client)
      */
     useFetchPolyfill: true,
 
@@ -630,7 +639,7 @@ module.exports = {
      */
     includeNodeModules: true,
   },
-};
+});
 ```
 
 ## [FAQ](https://github.com/prisma-labs/graphql-request/blob/master/README.md#faq)
