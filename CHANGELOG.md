@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.0.1](https://github.com/Gomah/nuxt-graphql-request/compare/v7.0.0...v7.0.1) (2023-09-28)
+
+
+### Bug Fixes
+
+* use @buttercup/fetch, closes [#54](https://github.com/Gomah/nuxt-graphql-request/issues/54) ([fc2b930](https://github.com/Gomah/nuxt-graphql-request/commit/fc2b93052f5654e1562ecdde0237ba0105752449))
+
 ## [7.0.0](https://github.com/Gomah/nuxt-graphql-request/compare/v6.0.3...v7.0.0) (2023-09-12)
 
 
