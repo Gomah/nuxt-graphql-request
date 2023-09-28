@@ -7,7 +7,7 @@ import { options as baseOptions } from '#build/graphql.options.mjs';
 
 export default defineNuxtPlugin(async (nuxtApp) => {
   if (baseOptions.useFetchPolyfill) {
-    globalThis.fetch = (await import('cross-fetch')).fetch;
+    globalThis.fetch = (await import('@buttercup/fetch')).fetch;
   }
 
   const runtimeOptions = nuxtApp.$config.public.graphql;
