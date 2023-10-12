@@ -47,7 +47,11 @@ yarn add nuxt-graphql-request@v6 graphql --dev
 
 ```ts
 module.exports = {
-  buildModules: ['nuxt-graphql-request'],
+  modules: ['nuxt-graphql-request'],
+
+  build: {
+    transpile: ['nuxt-graphql-request'],
+  },
 
   graphql: {
     /**
