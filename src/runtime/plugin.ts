@@ -7,6 +7,7 @@ import { options as baseOptions } from '#build/graphql.options.mjs';
 
 export default defineNuxtPlugin(async (nuxtApp) => {
   if (baseOptions.useFetchPolyfill) {
+    // @ts-ignore
     globalThis.fetch = (await import('@buttercup/fetch')).fetch;
   }
 

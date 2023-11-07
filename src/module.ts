@@ -9,7 +9,7 @@ import {
 } from '@nuxt/kit';
 import type { GraphQLClient } from 'graphql-request';
 import rollupGraphql from '@rollup/plugin-graphql';
-import { type UnpluginOptions, createUnplugin, VitePlugin } from 'unplugin';
+import { type UnpluginOptions, type VitePlugin, createUnplugin } from 'unplugin';
 
 export type ClientConfig = {
   endpoint: string;
