@@ -1,5 +1,5 @@
 import { GraphQLClient } from 'graphql-request';
-import { mergeAll } from 'ramda';
+import { mergeAll } from 'remeda';
 import type { ModuleOptions } from '../module';
 import { entries } from '../utils';
 import { defineNuxtPlugin } from '#imports';
