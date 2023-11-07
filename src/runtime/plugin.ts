@@ -1,8 +1,8 @@
-import { defineNuxtPlugin } from '#imports';
 import { GraphQLClient } from 'graphql-request';
 import { mergeAll } from 'ramda';
 import type { ModuleOptions } from '../module';
 import { entries } from '../utils';
+import { defineNuxtPlugin } from '#imports';
 import { options as baseOptions } from '#build/graphql.options.mjs';
 
 export default defineNuxtPlugin(async (nuxtApp) => {

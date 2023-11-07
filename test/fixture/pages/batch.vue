@@ -28,8 +28,8 @@ export default {
 </script>
 
 <script setup>
-import { useAsyncData, useNuxtApp } from '#imports';
 import { gql } from '../../../src/utils';
+import { useAsyncData, useNuxtApp } from '#imports';
 
 const { $graphql } = useNuxtApp();
 

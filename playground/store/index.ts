@@ -1,8 +1,8 @@
 import { defineStore } from 'pinia';
 import { gql } from 'graphql-request';
-import { useNuxtApp } from '#imports';
 import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
 import { parse } from 'graphql';
+import { useNuxtApp } from '#imports';
 
 export const useMainStore = defineStore('main', {
   state: () => ({

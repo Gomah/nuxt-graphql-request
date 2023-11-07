@@ -34,10 +34,10 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useAsyncData, useNuxtApp } from '#imports';
 import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
 import { parse } from 'graphql';
 import { gql } from 'graphql-request';
+import { useAsyncData, useNuxtApp } from '#imports';
 
 const { $graphql } = useNuxtApp();
 
