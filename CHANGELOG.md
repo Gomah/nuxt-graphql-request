@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.0.3](https://github.com/Gomah/nuxt-graphql-request/compare/v7.0.2...v7.0.3) (2023-11-07)
+
+
+### Chore
+
+* fix import order in module.ts ([61c9bdf](https://github.com/Gomah/nuxt-graphql-request/commit/61c9bdf5c796e685a97a37db2d64006863f6214f))
+* **deps:** upgrade dependencies, ramda -> remeda ([f7db404](https://github.com/Gomah/nuxt-graphql-request/commit/f7db4047800be11aa2497276f3578e02672cfdc8))
+
 ### [7.0.2](https://github.com/Gomah/nuxt-graphql-request/compare/v7.0.1...v7.0.2) (2023-11-07)
 
 
