@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.0.2](https://github.com/Gomah/nuxt-graphql-request/compare/v7.0.1...v7.0.2) (2023-11-07)
+
+
+### Bug Fixes
+
+* import nuxt composables from #imports ([74816e9](https://github.com/Gomah/nuxt-graphql-request/commit/74816e97613f0b6fd2cf75cfc3d6a4a043dca965))
+
+
+### Chore
+
+* lint ([0e0f447](https://github.com/Gomah/nuxt-graphql-request/commit/0e0f44770e5d522e92275fcb81da7f1e63b4212b))
+
 ### [7.0.1](https://github.com/Gomah/nuxt-graphql-request/compare/v7.0.0...v7.0.1) (2023-09-28)
 
 
