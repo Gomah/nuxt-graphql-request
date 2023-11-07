@@ -196,7 +196,7 @@ const fetchPlanets = () => {
 ```ts
 import { defineStore } from 'pinia';
 import { gql } from 'nuxt-graphql-request/utils';
-import { useNuxtApp } from 'nuxt/app';
+import { useNuxtApp } from '#imports';
 
 type Planet = { id: number; name: string };
 

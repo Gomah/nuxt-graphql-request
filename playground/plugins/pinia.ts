@@ -1,4 +1,4 @@
-import { defineNuxtPlugin } from 'nuxt/app';
+import { defineNuxtPlugin } from '#imports';
 import type { Pinia } from 'pinia';
 import { useMainStore } from '~/store';
 

@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import { gql } from 'graphql-request';
-import { useNuxtApp } from 'nuxt/app';
+import { useNuxtApp } from '#imports';
 import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
 import { parse } from 'graphql';
 
