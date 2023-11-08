@@ -30,9 +30,9 @@ export default {
 <script setup lang="ts">
 import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
 
+import { useAsyncData, useNuxtApp } from '#imports';
 import countriesQuery from '../graphql/query/countries.gql';
 import starWarsQuery from '../graphql/query/movies.gql';
-import { useAsyncData, useNuxtApp } from '#imports';
 
 const { $graphql } = useNuxtApp();
 
