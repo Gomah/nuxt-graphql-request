@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.0.4](https://github.com/Gomah/nuxt-graphql-request/compare/v7.0.3...v7.0.4) (2023-11-08)
+
+
+### Bug Fixes
+
+* **deps:** adjust sub-deps for node 20 ([6a8e47b](https://github.com/Gomah/nuxt-graphql-request/commit/6a8e47bc0ac95fc279f0b906d0b8898b97e154c2))
+
+
+### Internal
+
+* lint fixture ([952a8cf](https://github.com/Gomah/nuxt-graphql-request/commit/952a8cffbd1bbd398057b96ceb6250422f461d82))
+
 ### [7.0.3](https://github.com/Gomah/nuxt-graphql-request/compare/v7.0.2...v7.0.3) (2023-11-07)
 
 
