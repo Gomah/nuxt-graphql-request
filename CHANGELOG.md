@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.0.5](https://github.com/Gomah/nuxt-graphql-request/compare/v7.0.4...v7.0.5) (2023-12-23)
+
+
+### Chore
+
+* **deps:** bump dependencies ([32c37dd](https://github.com/Gomah/nuxt-graphql-request/commit/32c37dd3c54bca4bb60720d1e6b93f0c6d1b279b))
+* test bundler module resolution ([d673380](https://github.com/Gomah/nuxt-graphql-request/commit/d67338059efbc9a0b2e602037e278bc056332755))
+
 ### [7.0.4](https://github.com/Gomah/nuxt-graphql-request/compare/v7.0.3...v7.0.4) (2023-11-08)
 
 
