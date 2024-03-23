@@ -29,10 +29,10 @@ If you want to set headers after the GraphQLClient has been initialised, you can
 ```ts
 const { $graphql } = useNuxtApp();
 
-// Set a single header
+// Override all existing headers
 $graphql.default.setHeaders({ authorization: 'Bearer MY_TOKEN' });
 
-// Override all existing headers
+// Set a single header
 $graphql.default.setHeader('authorization', 'Bearer MY_TOKEN');
 ```
 
