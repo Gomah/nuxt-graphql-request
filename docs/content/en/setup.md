@@ -8,29 +8,14 @@ category: 'Guide'
 ## Install
 
 <code-group>
-  <code-block label="yarn" active>
+  <code-block label="nuxi" active>
 
 ```bash
-yarn add nuxt-graphql-request graphql --dev
+npx nuxi@latest module add graphql-request
 ```
 
   </code-block>
 
-  <code-block label="npm">
-
-```bash
-npm install nuxt-graphql-request graphql --save-dev
-```
-
-  </code-block>
-
-  <code-block label="pnpm">
-
-```bash
-pnpm add nuxt-graphql-request graphql -D
-```
-
-  </code-block>
 
 </code-group>
 
