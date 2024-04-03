@@ -8,7 +8,7 @@ category: 'Guide'
 ## Install
 
 <code-group>
-  <code-block label="yarn" active>
+  <code-block label="nuxi" active>
 
 ```bash
 npx nuxi@latest module add graphql-request
