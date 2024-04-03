@@ -27,20 +27,20 @@
 Install with yarn:
 
 ```bash
-yarn add nuxt-graphql-request graphql --dev
+npx nuxi@latest module add graphql-request
 ```
 
 Install with npm:
 
 ```bash
-npm install nuxt-graphql-request graphql --save-dev
+npx nuxi@latest module add graphql-request
 ```
 
 For Nuxt2, use nuxt-graphql-request v6:
 
 ```bash
 
-yarn add nuxt-graphql-request@v6 graphql --dev
+npx nuxi@latest module add graphql-request
 ```
 
 **nuxt.config.js**

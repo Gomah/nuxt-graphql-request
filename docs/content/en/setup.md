@@ -11,7 +11,7 @@ category: 'Guide'
   <code-block label="yarn" active>
 
 ```bash
-yarn add nuxt-graphql-request graphql --dev
+npx nuxi@latest module add graphql-request
 ```
 
   </code-block>
@@ -19,7 +19,7 @@ yarn add nuxt-graphql-request graphql --dev
   <code-block label="npm">
 
 ```bash
-npm install nuxt-graphql-request graphql --save-dev
+npx nuxi@latest module add graphql-request
 ```
 
   </code-block>
@@ -27,7 +27,7 @@ npm install nuxt-graphql-request graphql --save-dev
   <code-block label="pnpm">
 
 ```bash
-pnpm add nuxt-graphql-request graphql -D
+npx nuxi@latest module add graphql-request
 ```
 
   </code-block>
@@ -37,7 +37,7 @@ pnpm add nuxt-graphql-request graphql -D
 For Nuxt2, use nuxt-graphql-request v6:
 
 ```bash
-yarn add nuxt-graphql-request@v6 graphql --dev
+npx nuxi@latest module add graphql-request
 ```
 
 ## **nuxt.config.ts**
