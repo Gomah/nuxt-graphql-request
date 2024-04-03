@@ -16,28 +16,13 @@ npx nuxi@latest module add graphql-request
 
   </code-block>
 
-  <code-block label="npm">
-
-```bash
-npx nuxi@latest module add graphql-request
-```
-
-  </code-block>
-
-  <code-block label="pnpm">
-
-```bash
-npx nuxi@latest module add graphql-request
-```
-
-  </code-block>
 
 </code-group>
 
 For Nuxt2, use nuxt-graphql-request v6:
 
 ```bash
-npx nuxi@latest module add graphql-request
+yarn add nuxt-graphql-request@v6 graphql --dev
 ```
 
 ## **nuxt.config.ts**

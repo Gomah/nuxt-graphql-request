@@ -24,14 +24,6 @@
 
 ## Setup
 
-Install with yarn:
-
-```bash
-npx nuxi@latest module add graphql-request
-```
-
-Install with npm:
-
 ```bash
 npx nuxi@latest module add graphql-request
 ```
@@ -40,7 +32,7 @@ For Nuxt2, use nuxt-graphql-request v6:
 
 ```bash
 
-npx nuxi@latest module add graphql-request
+yarn add nuxt-graphql-request@v6 graphql --dev
 ```
 
 **nuxt.config.js**
