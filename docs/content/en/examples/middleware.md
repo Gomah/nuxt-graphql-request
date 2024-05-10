@@ -63,11 +63,6 @@ export default defineNuxtConfig({
       method: 'get', // Default to `POST`
     },
 
-    /**
-     * Optional
-     * default: false (this includes cross-fetch/polyfill before creating the graphql client)
-     */
-    useFetchPolyfill: true,
 
     /**
      * Optional

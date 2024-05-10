@@ -8,6 +8,9 @@ export default defineNuxtConfig({
       starWars: {
         endpoint: 'https://swapi-graphql.netlify.app/.netlify/functions/index',
       },
+      rickAndMorty: {
+        endpoint: 'https://rickandmortyapi.com/graphql',
+      },
       mergeAtRuntime: {
         endpoint: 'https://example.com',
       },

@@ -22,7 +22,6 @@ export interface ModuleOptions {
   };
   options?: GraphQLClient['requestConfig'];
   includeNodeModules?: boolean;
-  useFetchPolyfill?: boolean;
 }
 
 export interface ModulePublicRuntimeConfig {
@@ -39,7 +38,6 @@ export default defineNuxtModule<ModuleOptions>({
   },
   defaults: {
     includeNodeModules: false,
-    useFetchPolyfill: false,
     options: {},
     clients: {},
   },

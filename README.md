@@ -77,12 +77,6 @@ module.exports = {
 
     /**
      * Optional
-     * default: true (this includes cross-fetch/polyfill before creating the graphql client)
-     */
-    useFetchPolyfill: true,
-
-    /**
-     * Optional
      * default: false (this includes graphql-tag for node_modules folder)
      */
     includeNodeModules: true,
@@ -608,12 +602,6 @@ export default defineNuxtConfig({
     options: {
       method: 'get', // Default to `POST`
     },
-
-    /**
-     * Optional
-     * default: false (this includes cross-fetch/polyfill before creating the graphql client)
-     */
-    useFetchPolyfill: true,
 
     /**
      * Optional

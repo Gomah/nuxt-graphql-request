@@ -6,11 +6,6 @@ import { defineNuxtPlugin } from '#imports';
 import { options as baseOptions } from '#build/graphql.options.mjs';
 
 export default defineNuxtPlugin(async (nuxtApp) => {
-  if (baseOptions.useFetchPolyfill) {
-    // @ts-ignore
-    globalThis.fetch = (await import('@buttercup/fetch')).fetch;
-  }
-
   const runtimeOptions = nuxtApp.$config.public.graphql;
   const runtimeClients: Pick<ModuleOptions, 'clients'> & Partial<ModuleOptions['clients']> =
     runtimeOptions?.clients ?? {};

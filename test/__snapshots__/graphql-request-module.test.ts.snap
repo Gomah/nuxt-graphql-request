@@ -161,144 +161,135 @@ exports[`SSR > Runtime config 1`] = `
 
 exports[`SSR > Using batch queries 1`] = `
 <h2>
-  Countries using EUR
+  Characters, Page 1
 </h2>
 <ul>
   <!--[-->
   <li>
-    Andorra
+    Rick Sanchez
   </li>
   <li>
-    Austria
+    Morty Smith
   </li>
   <li>
-    Åland
+    Summer Smith
   </li>
   <li>
-    Belgium
+    Beth Smith
   </li>
   <li>
-    Saint Barthélemy
+    Jerry Smith
   </li>
   <li>
-    Cyprus
+    Abadango Cluster Princess
   </li>
   <li>
-    Germany
+    Abradolf Lincler
   </li>
   <li>
-    Estonia
+    Adjudicator Rick
   </li>
   <li>
-    Spain
+    Agency Director
   </li>
   <li>
-    Finland
+    Alan Rails
   </li>
   <li>
-    France
+    Albert Einstein
   </li>
   <li>
-    French Guiana
+    Alexander
   </li>
   <li>
-    Guadeloupe
+    Alien Googah
   </li>
   <li>
-    Greece
+    Alien Morty
   </li>
   <li>
-    Ireland
+    Alien Rick
   </li>
   <li>
-    Italy
+    Amish Cyborg
   </li>
   <li>
-    Lithuania
+    Annie
   </li>
   <li>
-    Luxembourg
+    Antenna Morty
   </li>
   <li>
-    Latvia
+    Antenna Rick
   </li>
   <li>
-    Monaco
-  </li>
-  <li>
-    Montenegro
-  </li>
-  <li>
-    Saint Martin
-  </li>
-  <li>
-    Martinique
-  </li>
-  <li>
-    Malta
-  </li>
-  <li>
-    Netherlands
-  </li>
-  <li>
-    Saint Pierre and Miquelon
-  </li>
-  <li>
-    Portugal
-  </li>
-  <li>
-    Réunion
-  </li>
-  <li>
-    Slovenia
-  </li>
-  <li>
-    Slovakia
-  </li>
-  <li>
-    San Marino
-  </li>
-  <li>
-    French Southern Territories
-  </li>
-  <li>
-    Vatican City
-  </li>
-  <li>
-    Kosovo
-  </li>
-  <li>
-    Mayotte
+    Ants in my Eyes Johnson
   </li>
 </ul>
 <h2>
-  Countries using AUD
+  Characters, Page 2
 </h2>
 <ul>
   <!--[-->
   <li>
-    Australia
+    Aqua Morty
   </li>
   <li>
-    Cocos [Keeling] Islands
+    Aqua Rick
   </li>
   <li>
-    Christmas Island
+    Arcade Alien
   </li>
   <li>
-    Heard Island and McDonald Islands
+    Armagheadon
   </li>
   <li>
-    Kiribati
+    Armothy
   </li>
   <li>
-    Norfolk Island
+    Arthricia
   </li>
   <li>
-    Nauru
+    Artist Morty
   </li>
   <li>
-    Tuvalu
+    Attila Starwar
+  </li>
+  <li>
+    Baby Legs
+  </li>
+  <li>
+    Baby Poopybutthole
+  </li>
+  <li>
+    Baby Wizard
+  </li>
+  <li>
+    Bearded Lady
+  </li>
+  <li>
+    Beebo
+  </li>
+  <li>
+    Benjamin
+  </li>
+  <li>
+    Bepisian
+  </li>
+  <li>
+    Beta-Seven
+  </li>
+  <li>
+    Beth Sanchez
+  </li>
+  <li>
+    Beth Smith
+  </li>
+  <li>
+    Beth Smith
+  </li>
+  <li>
+    Beth's Mytholog
   </li>
 </ul>
 `;

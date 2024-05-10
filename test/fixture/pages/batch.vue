@@ -1,15 +1,16 @@
 <template>
   <div id="test">
-    <h2>Countries using EUR</h2>
+    <h2>Characters, Page 1</h2>
+
     <ul>
-      <li v-for="country in batch.eur" :key="country.name">
-        {{ country.name }}
+      <li v-for="character in batch.first" :key="character.name">
+        {{ character.name }}
       </li>
     </ul>
-    <h2>Countries using AUD</h2>
+    <h2>Characters, Page 2</h2>
     <ul>
-      <li v-for="country in batch.aud" :key="country.name">
-        {{ country.name }}
+      <li v-for="character in batch.last" :key="character.name">
+        {{ character.name }}
       </li>
     </ul>
   </div>
@@ -21,7 +22,7 @@ export default {
 
   head() {
     return {
-      title: 'Batch / Countries',
+      title: 'Batch / Rick & Morty Characters',
     };
   },
 };
@@ -33,23 +34,25 @@ import { gql } from '../../../src/utils';
 
 const { $graphql } = useNuxtApp();
 
-const countriesQuery = gql`
-  query Countries($currency: String!) {
-    countries(filter: { currency: { eq: $currency } }) {
-      name
+const rickandMortyCharactersQuery = gql`
+  query Characters($page: Int!) {
+    characters(page: $page) {
+      results {
+        name
+      }
     }
   }
 `;
 
-const { data: batch } = await useAsyncData('countries', async () => {
-  const [{ data: eur }, { data: aud }] = await $graphql.countries.batchRequests([
-    { document: countriesQuery, variables: { currency: 'EUR' } },
-    { document: countriesQuery, variables: { currency: 'AUD' } },
-  ]);
+const { data: batch } = await useAsyncData('starships', async () => {
+    const [{ data: first }, { data: last }] = await $graphql.rickAndMorty.batchRequests([
+    { document: rickandMortyCharactersQuery, variables: { page: 1 } },
+    { document: rickandMortyCharactersQuery, variables: { page: 2 } },
+    ]);
 
   return {
-    eur: eur.countries,
-    aud: aud.countries,
+    first: first.characters.results,
+    last: last.characters.results,
   };
 });
 </script>
