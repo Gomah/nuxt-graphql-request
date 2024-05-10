@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.0.0](https://github.com/Gomah/nuxt-graphql-request/compare/v7.0.5...v8.0.0) (2024-05-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* bump graphql-request to 7.0.0, drop fetch polyfill
+
+### Features
+
+* bump graphql-request to 7.0.0, drop fetch polyfill ([9fbbe5c](https://github.com/Gomah/nuxt-graphql-request/commit/9fbbe5c383f8c75a96cb40533f224cd9fb223691))
+
+
+### Documentation
+
+* use new `nuxi module add` command in installation ([#62](https://github.com/Gomah/nuxt-graphql-request/issues/62)) ([bdeb998](https://github.com/Gomah/nuxt-graphql-request/commit/bdeb998a23238c2e4f27772475619903632d951e))
+
 ### [7.0.5](https://github.com/Gomah/nuxt-graphql-request/compare/v7.0.4...v7.0.5) (2023-12-23)
 
 
