@@ -62,7 +62,7 @@
   "dependencies": {
     "@nuxt/kit": "3.11.2",
     "@rollup/plugin-graphql": "2.0.4",
-    "graphql-request": "7.0.0",
+    "graphql-request": "7.0.1",
     "remeda": "1.61.0",
     "unplugin": "1.10.1"
   },
