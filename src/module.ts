@@ -7,8 +7,8 @@ import {
   createResolver,
   defineNuxtModule,
 } from '@nuxt/kit';
-import type { GraphQLClient } from 'graphql-request';
 import rollupGraphql from '@rollup/plugin-graphql';
+import type { GraphQLClient } from 'graphql-request';
 import { type UnpluginOptions, type VitePlugin, createUnplugin } from 'unplugin';
 
 export type ClientConfig = {
@@ -55,8 +55,7 @@ export default defineNuxtModule<ModuleOptions>({
     // Make TS accept gql file imports
     addTypeTemplate({
       filename: 'types/gql-file-import.d.ts',
-      getContents:
-        () => `// see: https://www.typescriptlang.org/docs/handbook/modules.html#wildcard-module-declarations
+      getContents: () => `// see: https://www.typescriptlang.org/docs/handbook/modules.html#wildcard-module-declarations
 declare module '*.gql';
 declare module '*.graphql';
 declare module '*.graphqls';`,

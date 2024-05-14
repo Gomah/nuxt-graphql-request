@@ -7,16 +7,16 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: ['18.x', '20.x']
+        node: ['20.x']
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
       - name: Use Node ${{ matrix.node }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
           cache: 'yarn'
@@ -24,8 +24,8 @@ jobs:
       - name: Install
         run: yarn install
 
-      - name: Build
-        run: yarn dev:build
+      - name: Prepare & Build
+        run: yarn dev:prepare
 
       - name: Lint
         run: yarn test:lint

@@ -28,15 +28,11 @@
     }
   },
   "build": {
-    "entries": [
-      "./src/utils"
-    ]
+    "entries": ["./src/utils"]
   },
   "main": "./dist/module.cjs",
   "types": "./dist/types.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "repository": "https://github.com/Gomah/nuxt-graphql-request",
   "homepage": "https://github.com/Gomah/nuxt-graphql-request",
   "publishConfig": {
@@ -48,12 +44,12 @@
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build build --stub && nuxi prepare playground",
     "release": "npm run lint && npm run test && npm run prepack && standard-version && git push --follow-tags && npm publish",
-    "lint": "eslint .",
+    "lint": "biome check .",
     "prepack": "nuxt-module-build build",
     "prepare": "husky install",
     "prepublishOnly": "yarn test",
     "test": "yarn dev:prepare && vitest run",
-    "test:lint": "eslint --ext .ts, src/",
+    "test:lint": "biome check .",
     "test:watch": "yarn dev:prepare && vitest watch"
   },
   "peerDependencies": {
@@ -69,30 +65,22 @@
   "devDependencies": {
     "@commitlint/cli": "19.3.0",
     "@commitlint/config-conventional": "19.2.2",
+    "@biomejs/biome": "1.7.3",
     "@graphql-typed-document-node/core": "3.2.0",
     "@nuxt/devtools": "1.2.0",
     "@nuxt/module-builder": "0.6.0",
     "@nuxt/schema": "3.11.2",
     "@nuxt/test-utils": "3.12.1",
     "@nuxt/types": "2.17.3",
-    "@nuxtjs/eslint-config-typescript": "12.1.0",
     "@pinia/nuxt": "0.5.1",
     "@types/node": "20.12.11",
-    "@types/webpack": "5.28.5",
-    "@typescript-eslint/eslint-plugin": "7.8.0",
-    "@typescript-eslint/parser": "7.8.0",
     "cheerio": "1.0.0-rc.12",
-    "eslint": "9.2.0",
-    "eslint-config-prettier": "9.1.0",
-    "eslint-plugin-prettier": "5.1.3",
-    "eslint-plugin-vue": "9.26.0",
     "graphql": "16.8.1",
     "graphql-tag": "2.12.6",
     "husky": "9.0.11",
     "jest-serializer-html": "7.1.0",
     "nuxt": "3.11.2",
     "pinia": "2.1.7",
-    "prettier": "3.2.5",
     "standard-version": "9.5.0",
     "typescript": "5.4.5",
     "vitest": "1.6.0"

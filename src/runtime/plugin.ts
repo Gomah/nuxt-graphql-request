@@ -1,9 +1,9 @@
 import { GraphQLClient } from 'graphql-request';
 import { mergeAll } from 'remeda';
+import { options as baseOptions } from '#build/graphql.options.mjs';
+import { defineNuxtPlugin } from '#imports';
 import type { ModuleOptions } from '../module';
 import { entries } from '../utils';
-import { defineNuxtPlugin } from '#imports';
-import { options as baseOptions } from '#build/graphql.options.mjs';
 
 export default defineNuxtPlugin(async (nuxtApp) => {
   const runtimeOptions = nuxtApp.$config.public.graphql;

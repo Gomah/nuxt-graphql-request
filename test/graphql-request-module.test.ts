@@ -1,8 +1,8 @@
 import { fileURLToPath } from 'node:url';
-import { describe, expect, test } from 'vitest';
-import { setup, $fetch } from '@nuxt/test-utils';
+import { $fetch, setup } from '@nuxt/test-utils';
 import { load as cheerio } from 'cheerio';
 import htmlSerializer from 'jest-serializer-html';
+import { describe, expect, test } from 'vitest';
 
 expect.addSnapshotSerializer(htmlSerializer);
 
