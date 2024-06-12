@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [8.0.2](https://github.com/Gomah/nuxt-graphql-request/compare/v8.0.1...v8.0.2) (2024-06-12)
+
+
+### Bug Fixes
+
+* add type definition for  provider ([27b2b62](https://github.com/Gomah/nuxt-graphql-request/commit/27b2b62db92eba42b4c49b4e6c7411f23af9120d))
+
+
+### Chore
+
+* **deps:** bump dependencies ([8b36e8a](https://github.com/Gomah/nuxt-graphql-request/commit/8b36e8ac5e88cc6385a0039731939e04bd42731c))
+* fix ci & use biome over eslint/prettier ([b29ed4f](https://github.com/Gomah/nuxt-graphql-request/commit/b29ed4fdf1937818b3493fa3eb6776bc40f1980d))
+* format w/ biome ([c6da6df](https://github.com/Gomah/nuxt-graphql-request/commit/c6da6dfbe440d01b0b296ad83b0e0702b90f0320))
+
 ### [8.0.1](https://github.com/Gomah/nuxt-graphql-request/compare/v8.0.0...v8.0.1) (2024-05-14)
 
 
