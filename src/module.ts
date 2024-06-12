@@ -41,7 +41,7 @@ export default defineNuxtModule<ModuleOptions>({
     options: {},
     clients: {},
   },
-  setup(options) {
+  setup(options, nuxt) {
     const resolver = createResolver(import.meta.url);
 
     addTemplate({
@@ -59,6 +59,20 @@ export default defineNuxtModule<ModuleOptions>({
 declare module '*.gql';
 declare module '*.graphql';
 declare module '*.graphqls';`,
+    });
+
+    addTypeTemplate({
+      filename: 'types/graphql-request.d.ts',
+      getContents: () =>
+        [
+          'import type { GraphQLClient } from "graphql-request"',
+          "declare module '#app' {",
+          `  export type GraphQLClientKeys = '${Object.keys({ ...options.clients, ...nuxt.options.runtimeConfig.public.graphql?.clients }).join("' | '")}'`,
+          '  interface NuxtApp {',
+          '    $graphql: Record<GraphQLClientKeys, GraphQLClient>',
+          '  }',
+          '}',
+        ].join('\n'),
     });
 
     // Do not add the extension since the `.ts` will be transpiled to `.mjs` after `npm run prepack`
