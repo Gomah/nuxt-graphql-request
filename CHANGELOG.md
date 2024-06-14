@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [8.0.3](https://github.com/Gomah/nuxt-graphql-request/compare/v8.0.2...v8.0.3) (2024-06-14)
+
+
+### Chore
+
+* indicate compatibility with new v4 major ([#64](https://github.com/Gomah/nuxt-graphql-request/issues/64)) ([3adff97](https://github.com/Gomah/nuxt-graphql-request/commit/3adff9721fa697f4e4391e345846bc70ff14323f))
+
 ### [8.0.2](https://github.com/Gomah/nuxt-graphql-request/compare/v8.0.1...v8.0.2) (2024-06-12)
 
 
