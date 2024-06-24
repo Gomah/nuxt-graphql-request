@@ -28,15 +28,11 @@
     }
   },
   "build": {
-    "entries": [
-      "./src/utils"
-    ]
+    "entries": ["./src/utils"]
   },
   "main": "./dist/module.cjs",
   "types": "./dist/types.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "repository": "https://github.com/Gomah/nuxt-graphql-request",
   "homepage": "https://github.com/Gomah/nuxt-graphql-request",
   "publishConfig": {
@@ -60,30 +56,30 @@
     "graphql": "14.x || 15.x || 16.x"
   },
   "dependencies": {
-    "@nuxt/kit": "3.12.1",
+    "@nuxt/kit": "3.12.2",
     "@rollup/plugin-graphql": "2.0.4",
-    "graphql-request": "7.0.1",
-    "remeda": "2.0.9",
+    "graphql-request": "7.1.0",
+    "remeda": "2.2.0",
     "unplugin": "1.10.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.8.1",
+    "@biomejs/biome": "1.8.2",
     "@commitlint/cli": "19.3.0",
     "@commitlint/config-conventional": "19.2.2",
     "@graphql-typed-document-node/core": "3.2.0",
-    "@nuxt/devtools": "1.3.3",
-    "@nuxt/module-builder": "0.7.1",
-    "@nuxt/schema": "3.12.1",
+    "@nuxt/devtools": "1.3.6",
+    "@nuxt/module-builder": "0.8.0",
+    "@nuxt/schema": "3.12.2",
     "@nuxt/test-utils": "3.13.1",
-    "@nuxt/types": "2.17.3",
+    "@nuxt/types": "2.17.4",
     "@pinia/nuxt": "0.5.1",
-    "@types/node": "20.14.2",
+    "@types/node": "20.14.8",
     "cheerio": "1.0.0-rc.12",
-    "graphql": "16.8.1",
+    "graphql": "16.9.0",
     "graphql-tag": "2.12.6",
     "husky": "9.0.11",
     "jest-serializer-html": "7.1.0",
-    "nuxt": "3.12.1",
+    "nuxt": "3.12.2",
     "pinia": "2.1.7",
     "standard-version": "9.5.0",
     "typescript": "5.4.5",
