@@ -1,6 +1,6 @@
 {
   "name": "nuxt-graphql-request",
-  "version": "8.0.3",
+  "version": "8.1.0",
   "description": "Easy GraphQL client integration with Nuxt.js",
   "author": {
     "name": "Gomah <hi@gomah.fr>"
@@ -28,11 +28,15 @@
     }
   },
   "build": {
-    "entries": ["./src/utils"]
+    "entries": [
+      "./src/utils"
+    ]
   },
   "main": "./dist/module.cjs",
   "types": "./dist/types.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "repository": "https://github.com/Gomah/nuxt-graphql-request",
   "homepage": "https://github.com/Gomah/nuxt-graphql-request",
   "publishConfig": {
