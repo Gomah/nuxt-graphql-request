@@ -11,6 +11,8 @@
 
 > Easy Minimal <a href="https://github.com/prisma-labs/graphql-request">GraphQL</a> client integration with Nuxt.js.
 
+For defining a GraphQL server in Nuxt 3, you may want to have a look at the [Apollo Server integration package for Nuxt](https://github.com/apollo-server-integrations/apollo-server-integration-h3) and the [GraphQL server toolkit Nuxt module](https://github.com/tobiasdiez/nuxt-graphql-server).
+
 ## Features
 
 - Most **simple and lightweight** GraphQL client.
