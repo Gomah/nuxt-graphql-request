@@ -28,15 +28,11 @@
     }
   },
   "build": {
-    "entries": [
-      "./src/utils"
-    ]
+    "entries": ["./src/utils"]
   },
   "main": "./dist/module.cjs",
   "types": "./dist/types.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "repository": "https://github.com/Gomah/nuxt-graphql-request",
   "homepage": "https://github.com/Gomah/nuxt-graphql-request",
   "publishConfig": {
