@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [8.1.1](https://github.com/Gomah/nuxt-graphql-request/compare/v8.1.0...v8.1.1) (2024-08-25)
+
+
+### Chore
+
+* biome lint ([d4a2fac](https://github.com/Gomah/nuxt-graphql-request/commit/d4a2facfa86b570fbcecf71e0a76a98886c61894))
+* bump deps, remove husky switch from yarn to bun ([559e9d2](https://github.com/Gomah/nuxt-graphql-request/commit/559e9d22343353bea2de0436660c863b9bdd764c))
+
 ## [8.1.0](https://github.com/Gomah/nuxt-graphql-request/compare/v8.0.3...v8.1.0) (2024-06-24)
 
 
